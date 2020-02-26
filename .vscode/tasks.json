@@ -6,8 +6,22 @@
       {
           "label": "Pandoc produce PDF",
           "type": "shell",
-          "command":  "${workspaceFolder}\\build.ps1",
-          "problemMatcher": []
+          "command":  "${workspaceFolder}\\task\\build.ps1",
+          "args": [
+            "-template=${workspaceFolder}/styddle/template.tex",
+            "-H",
+            "${workspaceFolder}/style/preamble.tex",
+            "-o",
+            "${workspaceFolder}/output/proceedings.pdf",
+            "-csl=${workspaceFolder}/style/springer-lecture-notes-in-computer-science.csl",
+            "-bibliography=",
+            "C:/Users/Gijs van Dam/Documents/library.bib"
+          ],
+          "problemMatcher": [],
+          "presentation": {
+            "reveal": "always",
+            "panel": "new"
+          }
       }
   ]
 }
