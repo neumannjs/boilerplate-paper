@@ -6,15 +6,19 @@
       {
           "label": "Pandoc produce PDF",
           "type": "shell",
-          "command":  "${workspaceFolder}\\task\\build.ps1",
+          "command":  "${workspaceFolder}\\tasks\\build.ps1",
           "args": [
-            "-template=${workspaceFolder}/styddle/template.tex",
+            "-wsf",
+            "${workspaceFolder}",
+            "-template",
+            "${workspaceFolder}/style/template.tex",
             "-H",
             "${workspaceFolder}/style/preamble.tex",
             "-o",
             "${workspaceFolder}/output/proceedings.pdf",
-            "-csl=${workspaceFolder}/style/springer-lecture-notes-in-computer-science.csl",
-            "-bibliography=",
+            "-csl",
+            "${workspaceFolder}/style/springer-lecture-notes-in-computer-science.csl",
+            "-bibliography",
             "C:/Users/Gijs van Dam/Documents/library.bib"
           ],
           "problemMatcher": [],

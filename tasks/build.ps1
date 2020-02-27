@@ -1,8 +1,10 @@
-param ($template, $H, $o, $csl, $bibliography)
+param ($wsf, $template, $H, $o, $csl, $bibliography)
 
-$Dir = get-childitem ../source
+$Dir = Get-ChildItem -Path "$wsf/source/".replace("\","/")
+ 
 $List = $Dir | Where-Object {$_.extension -eq ".md"}| ForEach-Object {$_.FullName} 
 $List = $([string]$List).replace("\","/")
+Write-Host($List)
 $Command = -join
 (
 "pandoc $List ",
