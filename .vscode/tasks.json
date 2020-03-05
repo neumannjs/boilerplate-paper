@@ -4,12 +4,12 @@
   "version": "2.0.0",
   "tasks": [
       {
-          "label": "Pandoc produce PDF",
+          "label": "Paper to PDF",
           "type": "shell",
           "command":  "${workspaceFolder}\\tasks\\build.ps1",
           "args": [
-            "-wsf",
-            "${workspaceFolder}",
+            "-source",
+            "${workspaceFolder}/source",
             "-template",
             "${workspaceFolder}/style/template.tex",
             "-H",
@@ -26,6 +26,28 @@
             "reveal": "always",
             "panel": "new"
           }
-      }
+      },
+      {
+        "label": "Poster to PDF",
+        "type": "shell",
+        "command":  "${workspaceFolder}\\tasks\\build.ps1",
+        "args": [
+          "-source",
+          "${workspaceFolder}/poster-input",
+          "-template",
+          "${workspaceFolder}/style/poster.tex",
+          "-o",
+          "${workspaceFolder}/output/poster.pdf",
+          "-csl",
+          "${workspaceFolder}/style/elsevier.csl",
+          "-bibliography",
+          "C:/Users/Gijs van Dam/Documents/library.bib"
+        ],
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+    }
   ]
 }
