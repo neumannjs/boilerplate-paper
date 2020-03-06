@@ -4,6 +4,7 @@ Discussion
 Herrera-Joancomarti [-@Herrera-Joancomarti2019] reported that 89.10% of all channels could have their balances exactly disclosed. Our research showed that we can improve this to 98.37% of all channels, a 9.27 percentage point increase (See [@tbl:results]). The basic BDA performed slightly less in our snapshot of the LN network because in the period between the two snapshots of the 8th of January, 2019 and the 3rd of October, 2019, the percentage of channels with a capacity $C$ of $C > 2^{32}$ slightly increased.
 
 \footnotesize
+
 |       Disclosable channels       | basic BDA (%) | two-way probing BDA (%) |
 | :------------------------------- | ------------: | ----------------------: |
 | $C \leq 2^{32}$                  |         89.10 |                   88.49 |

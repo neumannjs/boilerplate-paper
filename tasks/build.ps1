@@ -8,17 +8,23 @@ Write-Host($List)
 $Command = -join
 (
 "pandoc $List ",
-"--template=`"$template`" ",
 "-F pandoc-crossref ",
 "-o `"$o`" ",
 "--csl=`"$csl`" ",
 "--highlight-style pygments ",
-"--lua-filter=`"C:/Repositories/boilerplate-paper/style/poster-block.lua`" ",
+# "--lua-filter=`"C:/Repositories/boilerplate-paper/style/poster-block.lua`" ",
+"--lua-filter=`"C:/Repositories/boilerplate-paper/style/abstract-to-meta.lua`" ",
 # "--lua-filter=`"C:/Repositories/ivic-proceedings/style/metadata-replace.lua`" ",
-"--bibliography=`"$bibliography`" ",
-"-V fontsize=12pt ",
-"-V papersize=a4paper"
+"--bibliography=`"$bibliography`" "
 )
+
+if($template) {
+  $Command = -join
+  (
+    "$Command ",
+    "--template=`"$template`""
+  )
+}
 
 if($H) {
   $Command = -join

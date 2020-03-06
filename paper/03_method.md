@@ -54,34 +54,34 @@ If $C_{AB} > MAX\_PAYMENT\_ALLOWED \land C_{AB} < 2 \times  MAX\_PAYMENT\_ALLOWE
 \State $missingTests \gets True$
 \State $bwidth.max \gets maxFlow$
 \State $bwidth.min \gets minFlow$
-\LState $channelCapacity \gets getInfo(target).capacity$
+\State $channelCapacity \gets getInfo(target).capacity$
 \While{missingTests}
   \If{$bwidth.max - bwidth.min \leq accuracy\_threshold$}
-    \LState $missingTests \gets False$
+    \State $missingTests \gets False$
   \EndIf
   \If{$bwidth.max \geq 2^{32}$}
-    \LState $flow \gets 2^{32} - 1$
+    \State $flow \gets 2^{32} - 1$
   \Else
-    \LState $flow \gets (bwidth.min + bwidth.max) / 2$
+    \State $flow \gets (bwidth.min + bwidth.max) / 2$
   \EndIf
-  \LState $h(x) \gets RandomValue$
-  \LState $response \gets sendFakePayment(route = [route, target], h(x), flow)$
+  \State $h(x) \gets RandomValue$
+  \State $response \gets sendFakePayment(route = [route, target], h(x), flow)$
   \If{$response = UnknownPaymentHash$}
     \If{$bwidth.min < flow$}
-      \LState $bwidth.min \gets flow$
+      \State $bwidth.min \gets flow$
     \EndIf
   \ElsIf{$response = InsufficientFunds$}
     \If{$bwidth.max > flow$}
-      \LState $bwidth.max \gets flow$
+      \State $bwidth.max \gets flow$
     \EndIf
   \EndIf
   \If{$bwidth.min = 2^{32} - 1$}
-    \LState $newTarget \gets route.pop()$
-    \LState $route \gets route.push(target)$
-    \LState $bwidthBA \gets twowayProbing(route, newTarget, bwidth.min, 0, accuracy\_treshold)$
-    \LState $bwidth.min \gets channelCapacity - bwidthBA.max$
-    \LState $bwidth.max \gets channelCapacity - bwidthBA.min$
-    \LState $missingTests \gets False$
+    \State $newTarget \gets route.pop()$
+    \State $route \gets route.push(target)$
+    \State $bwidthBA \gets twowayProbing(route, newTarget, bwidth.min, 0, accuracy\_treshold)$
+    \State $bwidth.min \gets channelCapacity - bwidthBA.max$
+    \State $bwidth.max \gets channelCapacity - bwidthBA.min$
+    \State $missingTests \gets False$
   \EndIf
 \EndWhile
 \State \textbf{return} $bwidth$

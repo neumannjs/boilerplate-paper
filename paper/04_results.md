@@ -52,7 +52,7 @@ The two-way probing algorithm works regardless of the client software. So we can
         ultra thick,
         each nth point=5
         ]
-        table {source/data/capacity.dat};
+        table {data/capacity.dat};
     \legend{Cum. perc. of Channels};
 
     \draw [dashed, draw=red] 
@@ -72,7 +72,8 @@ To estimate the number of channels susceptible for Balance Disclosure above the 
 We queried 1ML for each node in our snapshot of the LN. We identified the client type for 273 nodes out of 3608 and estimated the proportion of nodes running different clients based on that data. (See [@tbl:proportions])
 
 \footnotesize
-|   Client    |  n   | Proportion (%) |  CI[^CI] (%)  |
+
+|   Client    |  n   | Proportion (%) |    CI (%)     |
 | :---------- | ---: | -------------: | :-----------: |
 | LND         |  220 |          80.59 | (79.35-81.83) |
 | c-lightning |   40 |          14.65 | (13.54-15.76) |
@@ -80,8 +81,6 @@ We queried 1ML for each node in our snapshot of the LN. We identified the client
 | Other       |    2 |           0.73 |  (0.47-1.00)  |
 
 Table: Proportion of nodes running different Lightning clients {#tbl:proportions}
-
-[^CI]: 95% Confidence interval
 
 \normalsize
 
@@ -98,6 +97,7 @@ An edge is said to be of $type_{(l, c)}$ if it connects a $type_l$ vertex and a 
 Since we know the proportions of the different vertex types we can calculate the probability of an edge being of a specific type
 
 \small
+
 - $P(type_{(l, l)}) = 0.8059^2$
 - $P(type_{(c, c)}) = 0.1465^2$
 - $P(type_{(e, e)}) = 0.0403^2$
@@ -106,6 +106,7 @@ Since we know the proportions of the different vertex types we can calculate the
 - $P(type_{(c, e)}) = 2 \times 0.1465 \times 0.0403$
 
 \normalsize
+
 Assuming vertex type and channel capacity have a covariance of zero, the number of edges of each edge type, having a capacity greater than $2^{33}$ is calculated as follows: $P(type_{([c, e, l], [c, e, l])}) \times 540$. We are interested in the $type_{(l, l)}$ and $type_{(l, e)}$ channels, because the  $type_{(l, c)}$ channels are susceptible to the Payment of Death, which doesn't allow for discovering the balance. So the amount of channels with a capacity above $2^{32}$ is $540 \times P(type_{(l, l)}) + 540 \times P(type_{(l, e)}) = 386$ channels. So a total of $9438 - 540 + 386 = 9284$ channels have balances that can be disclosed. This is 98.4% of all channels.
 
 For the amount of channels affected by the POD we are interested in all $type_{(l, c)}$ channels, with a balance above \textsc{MAX\_PAYMENT\_ALLOWED}. This is $1086 \times P(type_{(l, c)}) = 256$ channels, meaning that 2.7% of all channels can be shutdown by using malformed payments.
