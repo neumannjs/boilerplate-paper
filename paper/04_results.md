@@ -27,45 +27,7 @@ We have notified the developers of the LN implementations by means of a responsi
 Channels affected
 -----------------
 
-The two-way probing algorithm works regardless of the client software. So we can look at the channel capacity of all public channels in the LN graph and determine the proportion of channels that are now susceptible to this type of attack based on a snapshot of the network taken on the 3rd of October, 2019 (see [@fig:capacity]).
-
-<div id="fig:capacity">
-\scalebox{0.7}{
-    \begin{tikzpicture}
-    \begin{axis}[
-        xlabel={Channels (sorted by increasing capacity)},
-        ylabel={Percentage of Channels},
-        width=\textwidth,
-        xmin=0, xmax=16777215,
-        ymin=0, ymax=100,
-        ytick={0,20,40,60,80,100},
-        legend pos=south east,
-        ymajorgrids=true,
-        grid style=dashed,
-        label style={font=\normalsize},
-        tick label style={font=\normalsize}  
-    ]
-    
-    \addplot[
-        color=blue,
-        mark=none,
-        ultra thick,
-        each nth point=5
-        ]
-        table {data/capacity.dat};
-    \legend{Cum. perc. of Channels};
-
-    \draw [dashed, draw=red] 
-        (axis cs: 4294967,0) -- node[below=5pt, font=\small, sloped] {$MAX\_PAYMENT\_ALLOWED$} (axis cs: 4294967,100);
-
-    \draw [dashed, draw=red] 
-        (axis cs: 8589934,0) -- node[below=5pt, font=\small, sloped] {$2 \times MAX\_PAYMENT\_ALLOWED$} (axis cs: 8589934,100);
-
-    \end{axis}
-    \end{tikzpicture}
-}
-Cumulative percentage graph of payment channels ordered by increasing capacity. $MAX\_PAYMENT\_ALLOWED$ shows the percentage of channels with disclosable balances using the basic BDA algorithm. $2 \times MAX\_PAYMENT\_ALLOWED$ shows the percentage of channels with disclosable balances using the two-way probing algorithm.
-</div>
+The two-way probing algorithm works regardless of the client software. So we can look at the channel capacity of all public channels in the LN graph and determine the proportion of channels that are now susceptible to this type of attack based on a snapshot of the network taken on the 3rd of October, 2019.
 
 To estimate the number of channels susceptible for Balance Disclosure above the $2^{33}$ limit set by the Two-way algorithm, we need to know the type of client on either side of a channel. There's no known way of figuring out what kind of client is installed, but if you know the proportion of each client type in the LN, it is possible to estimate the amount of channels for each specific combination of clients.
 

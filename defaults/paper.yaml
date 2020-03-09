@@ -1,0 +1,21 @@
+from: markdown
+to: pdf
+
+output-file: ./output/paper.pdf
+
+include-in-header: [./style/preamble.tex]
+
+metadata:
+  csl: ./style/springer-lecture-notes-in-computer-science.csl
+
+filters:
+- pandoc-citeproc
+- pandoc-crossref
+- ./style/git-revision.lua
+- ./style/metadata-replace.lua
+
+verbosity: WARNING
+
+bibliography: C:/Users/Gijs van Dam/Documents/library.bib
+
+number-sections: true

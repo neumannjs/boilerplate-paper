@@ -4,7 +4,6 @@ author:
 - Author One
 - Author Two
 keywords: [nothing, nothingness]
-papersize: a4
-numbersections: true
 secnumdepth: 2
+papersize: a4
 ---

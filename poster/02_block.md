@@ -37,7 +37,7 @@ T         46
 
 ## Figures and images
 
-![Look at that puppy!](./poster-input/images/puppy.jpg){width=100px height=100px}
+![Look at that puppy!](./poster/images/puppy.jpg){width=100px height=100px}
 
 ----
 

@@ -20,6 +20,16 @@
 
 \usepackage{longtable, booktabs}
 \usepackage{caption}
+
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
+
 % Make caption package work with longtable
 \makeatletter
 \def\fnum@table{\tablename~\thetable}
@@ -42,11 +52,6 @@ $endif$
 $if(footimage)$
 \footimage{$footimage$}
 $endif$
-% \author[liantze@gmail.com]{Lim Lian Tze}
-% \title{Writing Posters with Markdown}
-% \institute{Overleaf}
-% Optional foot image
-% \footimage{\includegraphics[width=4cm]{IMG_1934.jpg}}
 
 \begin{document}
 \begin{frame}[fragile]\centering

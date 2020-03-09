@@ -10,14 +10,8 @@
       "args": [
         "-source",
         "${workspaceFolder}/paper",
-        "-H",
-        "${workspaceFolder}/style/preamble.tex",
-        "-o",
-        "${workspaceFolder}/output/paper.pdf",
-        "-csl",
-        "${workspaceFolder}/style/springer-lecture-notes-in-computer-science.csl",
-        "-bibliography",
-        "C:/Users/Gijs van Dam/Documents/library.bib"
+        "-defaults" ,
+        "${workspaceFolder}/defaults/paper.yaml"
       ],
       "problemMatcher": [],
       "presentation": {
@@ -32,14 +26,8 @@
       "args": [
         "-source",
         "${workspaceFolder}/poster",
-        "-template",
-        "${workspaceFolder}/style/poster.tex",
-        "-o",
-        "${workspaceFolder}/output/poster.pdf",
-        "-csl",
-        "${workspaceFolder}/style/elsevier.csl",
-        "-bibliography",
-        "C:/Users/Gijs van Dam/Documents/library.bib"
+        "-defaults" ,
+        "${workspaceFolder}/defaults/poster.yaml"
       ],
       "problemMatcher": [],
       "presentation": {

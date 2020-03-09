@@ -3,7 +3,7 @@ local vars = {}
 function get_vars (meta)
   for k, v in pairs(meta) do
     if (v and v.t and v.t == 'MetaInlines') then
-      vars["$" .. k .. "$"] = {table.unpack(v)}
+      vars["%" .. k .. "%"] = {table.unpack(v)}
     end
   end
 end
