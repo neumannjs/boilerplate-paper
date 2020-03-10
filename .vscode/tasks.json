@@ -20,6 +20,28 @@
       }
     },
     {
+      "label": "Paper to DOCX",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "${workspaceFolder}/paper",
+        "-defaults",
+        "${workspaceFolder}/defaults/paper.yaml",
+        "-referencedoc",
+        "${workspaceFolder}/style/reference.docx",
+        "-output",
+        "${workspaceFolder}/output/paper.docx",
+        "-to",
+        "docx"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
       "label": "Poster to PDF",
       "type": "shell",
       "command": "${workspaceFolder}\\tasks\\build.ps1",
