@@ -2,6 +2,7 @@
 -- improve this by checking for unstaged or staged changes OR maybe committing them?
 
 function Meta(m)
+  print("Running git revision filter")
   local handle = io.popen("git describe --always --tags","r")
   local result = handle:read("*a")
   handle:close()
