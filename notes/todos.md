@@ -4,5 +4,7 @@
 - [ ] Build word document with review from two specific revisions
 - [ ] Use cache for images with lua filter
 - [ ] Get Lua filters with git revision and metadata replace to work again.
-- [ ] Create Word reference file
+- [X] Create Word reference file
 - [ ] Create Powerpoint reference file
+- [ ] Fix citeproc references
+- [ ] Create dummy text, but with tables, tikz pictures and graphs, and pseudocode, references, cross-references
