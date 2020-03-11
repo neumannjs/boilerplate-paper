@@ -1,5 +1,5 @@
 ﻿---
-title: 'This is the title: it contains a colon'
+title: This is the title, it doesn't contain a colon
 author:
 - Author One
 - Author Two
