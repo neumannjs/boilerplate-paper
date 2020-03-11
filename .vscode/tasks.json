@@ -10,7 +10,7 @@
       "args": [
         "-source",
         "${workspaceFolder}/paper",
-        "-defaults" ,
+        "-defaults",
         "${workspaceFolder}/defaults/paper.yaml"
       ],
       "problemMatcher": [],
@@ -48,7 +48,7 @@
       "args": [
         "-source",
         "${workspaceFolder}/poster",
-        "-defaults" ,
+        "-defaults",
         "${workspaceFolder}/defaults/poster.yaml"
       ],
       "problemMatcher": [],
@@ -56,6 +56,47 @@
         "reveal": "always",
         "panel": "shared"
       }
+    },
+    {
+      "label": "Checkout specific commit",
+      "type": "shell",
+      "command": "git checkout ${input:gitCommit}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Paper to DOCX specific commit",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "${workspaceFolder}/paper",
+        "-defaults",
+        "${workspaceFolder}/defaults/paper.yaml",
+        "-referencedoc",
+        "${workspaceFolder}/style/reference.docx",
+        "-output",
+        "${workspaceFolder}/output/paper${input:gitCommit}.docx",
+        "-to",
+        "docx"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "dependsOrder": "sequence",
+      "dependsOn": ["Checkout specific commit"]
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "gitCommit",
+      "description": "Specify abbreviated commit hash."
     }
   ]
 }
