@@ -55,7 +55,6 @@
     <text macro="year-date"/>
   </macro>
   <macro name="edition">
-    <!--TODO: CSL should have low numeric be text (e.g. '3'->'third')-->
     <choose>
       <if is-numeric="edition">
         <group delimiter=" ">
