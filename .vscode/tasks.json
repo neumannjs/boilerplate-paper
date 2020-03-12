@@ -70,7 +70,7 @@
     {
       "label": "Paper to DOCX specific commit",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "command": "git checkout ${input:gitCommit}; ${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
         "${workspaceFolder}/paper",
@@ -83,13 +83,13 @@
         "-to",
         "docx"
       ],
+      "dependsOrder": "sequence",
+      "dependsOn": ["Checkout specific commit"],
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
         "panel": "shared"
-      },
-      "dependsOrder": "sequence",
-      "dependsOn": ["Checkout specific commit"]
+      }
     }
   ],
   "inputs": [
