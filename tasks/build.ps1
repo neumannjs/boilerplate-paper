@@ -31,7 +31,12 @@ function build($source, $defaults, $referencedoc, $to, $output) {
 }
 
 if ($commit) {
+  Write-Host $commit
   Invoke-Expression "git checkout $commit"
 }
 
-build($source, $defaults, $referencedoc, $to, $output)
+build $source $defaults $referencedoc $to $output
+
+if ($commit) {
+  Invoke-Expression "git checkout -"
+}
