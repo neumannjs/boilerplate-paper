@@ -1,13 +1,7 @@
 param ($source, $defaults, $referencedoc, $to, $output, $commit)
 
-if ($commit) {
-  Invoke-Expression "git checkout $commit"
-}
-
-build($source, $defaults, $referencedoc, $to, $output)
-
 function build($source, $defaults, $referencedoc, $to, $output) {
-  $Dir = Get-ChildItem -Path "$source".replace("\", "/")
+  $Dir = Get-ChildItem -Path $source.replace("\", "/")
   $defaults = $defaults.replace("\", "/")
  
   $List = $Dir | Where-Object { $_.extension -eq ".md" } | ForEach-Object { $_.FullName } 
@@ -35,3 +29,9 @@ function build($source, $defaults, $referencedoc, $to, $output) {
   Invoke-Expression $Command
 
 }
+
+if ($commit) {
+  Invoke-Expression "git checkout $commit"
+}
+
+build($source, $defaults, $referencedoc, $to, $output)
