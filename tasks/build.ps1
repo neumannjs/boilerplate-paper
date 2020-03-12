@@ -1,4 +1,8 @@
-param ($source, $defaults, $referencedoc, $to, $output)
+param ($source, $defaults, $referencedoc, $to, $output, $commit)
+
+if($commit){
+  Invoke-Expression "git checkout $commit"
+}
 
 $Dir = Get-ChildItem -Path "$source".replace("\","/")
 $defaults = $defaults.replace("\","/")

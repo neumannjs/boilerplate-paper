@@ -58,19 +58,9 @@
       }
     },
     {
-      "label": "Checkout specific commit",
-      "type": "shell",
-      "command": "git checkout ${input:gitCommit}",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      }
-    },
-    {
       "label": "Paper to DOCX specific commit",
       "type": "shell",
-      "command": "git checkout ${input:gitCommit}; ${workspaceFolder}\\tasks\\build.ps1",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
         "${workspaceFolder}/paper",
@@ -81,10 +71,10 @@
         "-output",
         "${workspaceFolder}/output/paper${input:gitCommit}.docx",
         "-to",
-        "docx"
+        "docx",
+        "-commit",
+        "${input:gitCommit}"
       ],
-      "dependsOrder": "sequence",
-      "dependsOn": ["Checkout specific commit"],
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
