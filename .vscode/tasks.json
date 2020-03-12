@@ -69,12 +69,34 @@
         "-referencedoc",
         "${workspaceFolder}/style/reference.docx",
         "-output",
-        "${workspaceFolder}/output/paper${input:gitCommit}.docx",
+        "${workspaceFolder}/output/paper.docx",
         "-to",
         "docx",
-        "-commit",
+        "-commits",
         "${input:gitCommit}"
       ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Paper track changes DOCX",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\compare.ps1",
+      "args": [
+        "-BaseFileName",
+        "${workspaceFolder}/output/paper.docx",
+        "-SaveAsFileName",
+        "${workspaceFolder}/output/paper-track-changes.docx",
+        "-Author",
+        "${env:USERNAME}",
+        "-commits",
+        "${input:gitCommit}"
+      ],
+      "dependsOn": "Paper to DOCX specific commit",
+      "dependsOrder": "sequence",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -86,7 +108,7 @@
     {
       "type": "promptString",
       "id": "gitCommit",
-      "description": "Specify abbreviated commit hash."
+      "description": "Specify abbreviated commit hash(es)."
     }
   ]
 }

@@ -1,4 +1,4 @@
-param ($source, $defaults, $referencedoc, $to, $output, $commit)
+param ([String] $source, [String] $defaults, [String] $referencedoc, [String] $to, [String] $output, [String[]] $commits)
 
 function build($source, $defaults, $referencedoc, $to, $output) {
   $Dir = Get-ChildItem -Path $source.replace("\", "/")
@@ -30,13 +30,17 @@ function build($source, $defaults, $referencedoc, $to, $output) {
 
 }
 
-if ($commit) {
-  Write-Host $commit
-  Invoke-Expression "git checkout $commit"
-}
-
-build $source $defaults $referencedoc $to $output
-
-if ($commit) {
-  Invoke-Expression "git checkout -"
+if($commits){
+  foreach ($commit in $commits){
+    Write-Host $commit
+    $OutputWithoutExt = $output.Substring(0, $output.LastIndexOf("."))
+    $OutputExt = $output.Substring($output.LastIndexOf("."), $output.length - $output.LastIndexOf("."))
+    $outputWithCommit = $OutputWithoutExt + $commit + $OutputExt
+    Write-Host $output
+    Invoke-Expression "git checkout $commit"
+    build $source $defaults $referencedoc $to $outputWithCommit
+    Invoke-Expression "git checkout -"
+  }
+} else {
+  build $source $defaults $referencedoc $to $output
 }
