@@ -10,6 +10,8 @@ local function tikz2image(src, filetype, outfile)
                    ".\\output" .. tmp)
     if filetype == 'pdf' then
         os.rename(".\\output" .. tmp .. ".pdf", outfile)
+    elseif filetype == 'png' then
+        os.execute("magick convert  -density 300 -antialias .\\output" .. tmp .. ".pdf -quality 100 " .. outfile)
     else
         os.execute("pdf2svg .\\output" .. tmp .. ".pdf " .. outfile)
     end
@@ -24,7 +26,8 @@ extension_for = {
     html4 = 'svg',
     html5 = 'svg',
     latex = 'pdf',
-    beamer = 'pdf'
+    beamer = 'pdf',
+    docx = 'png'
 }
 
 local function file_exists(name)
