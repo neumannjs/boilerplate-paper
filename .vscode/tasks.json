@@ -102,6 +102,63 @@
         "reveal": "always",
         "panel": "shared"
       }
+    },
+    {
+      "label": "Slides to RevealJs",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "${workspaceFolder}/slides",
+        "-defaults",
+        "${workspaceFolder}/defaults/slides.yaml"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Slides to Beamer",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "${workspaceFolder}/slides",
+        "-defaults",
+        "${workspaceFolder}/defaults/slides.yaml",
+        "-to",
+        "beamer",
+        "-output",
+        "${workspaceFolder}/output/slides.pdf"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    ,
+    {
+      "label": "Slides to PPTX",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "${workspaceFolder}/slides",
+        "-defaults",
+        "${workspaceFolder}/defaults/slides.yaml",
+        "-to",
+        "pptx",
+        "-output",
+        "${workspaceFolder}/output/slides.pptx"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
     }
   ],
   "inputs": [

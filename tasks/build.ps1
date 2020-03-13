@@ -1,7 +1,7 @@
 param ([String] $source, [String] $defaults, [String] $referencedoc, [String] $to, [String] $output, [String[]] $commits)
 
 function build($source, $defaults, $referencedoc, $to, $output) {
-  $Dir = Get-ChildItem -Path $source.replace("\", "/")
+  $Dir = Get-ChildItem -Path $source.replace("\", "/") | Sort-Object
   $defaults = $defaults.replace("\", "/")
  
   $List = $Dir | Where-Object { $_.extension -eq ".md" } | ForEach-Object { $_.FullName } 
