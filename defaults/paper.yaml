@@ -9,8 +9,8 @@ metadata:
   csl: ./style/springer-lecture-notes-in-computer-science.csl
 
 filters:
-- pandoc-citeproc
 - pandoc-crossref
+- pandoc-citeproc
 - ./style/git-revision.lua
 - ./style/metadata-replace.lua
 - ./style/tikz.lua
