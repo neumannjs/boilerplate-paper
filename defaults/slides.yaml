@@ -10,6 +10,9 @@ extract-media: output/images
 metadata:
   csl: ./style/elsevier.csl
 
+# variables:
+#   date: 2020-03-10
+
 filters:
 - pandoc-citeproc
 - ./style/git-revision.lua
