@@ -4,7 +4,7 @@ to: revealjs
 output-file: ./output/slides.html
 
 standalone: true
-self-contained: true
+self-contained: false
 
 metadata:
   csl: ./style/elsevier.csl
