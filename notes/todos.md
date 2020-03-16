@@ -15,3 +15,4 @@
 - [ ] (maybe?) Inverse images, so that they work on a dark background?
 - [ ] (maybe?) Extract images from source material
 - [ ] Tikzpictures in slides
+- [ ] Seperate the dummy text into a demo folder, so that if somebody clones the project the paper, slides and poster fodlers are empty

@@ -27,7 +27,8 @@ extension_for = {
     html5 = 'svg',
     latex = 'pdf',
     beamer = 'pdf',
-    docx = 'png'
+    docx = 'png',
+    revealjs = 'svg'
 }
 
 local function file_exists(name)
@@ -46,7 +47,7 @@ function RawBlock(el)
     if starts_with("\\begin{tikzpicture}", el.text) or
         starts_with("\\tikzset", el.text) then
         local filetype = extension_for[FORMAT] or "svg"
-        local fname = ".\\output\\images\\" .. pandoc.sha1(el.text) .. "." .. filetype
+        local fname = "./output/images/" .. pandoc.sha1(el.text) .. "." .. filetype
         if not file_exists(fname) then
             print("Uncached image found, building:" .. fname)
             tikz2image(el.text, filetype, fname)

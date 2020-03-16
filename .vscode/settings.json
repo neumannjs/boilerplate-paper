@@ -4,5 +4,10 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
+  },
+  "liveServer.settings": {
+    "root": "/output",
+    "mount": [["/reveal.js", "./reveal.js"],
+              ["/output", "./output"]]
   }
 }

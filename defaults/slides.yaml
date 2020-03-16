@@ -5,15 +5,16 @@ output-file: ./output/slides.html
 
 standalone: true
 self-contained: false
+extract-media: output/images
 
 metadata:
   csl: ./style/elsevier.csl
 
 filters:
 - pandoc-citeproc
-- pandoc-crossref
 - ./style/git-revision.lua
 - ./style/metadata-replace.lua
+- ./style/tikz.lua
 
 verbosity: WARNING
 

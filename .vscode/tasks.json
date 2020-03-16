@@ -139,7 +139,6 @@
         "panel": "shared"
       }
     },
-    ,
     {
       "label": "Slides to PPTX",
       "type": "shell",
@@ -153,6 +152,26 @@
         "pptx",
         "-output",
         "${workspaceFolder}/output/slides.pptx"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Slides to JSON",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "${workspaceFolder}/slides",
+        "-defaults",
+        "${workspaceFolder}/defaults/slides.yaml",
+        "-to",
+        "json",
+        "-output",
+        "${workspaceFolder}/output/slides.json"
       ],
       "problemMatcher": [],
       "presentation": {
