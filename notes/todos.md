@@ -13,6 +13,7 @@
 - [ ] Keep track of this issue, fallback-png for svg in docx: https://github.com/jgm/pandoc/issues/4058
 - [ ] Fix sizing of Png images in Docx
 - [ ] (maybe?) Inverse images, so that they work on a dark background?
-- [ ] (maybe?) Extract images from source material
-- [ ] Tikzpictures in slides
+- [X] (maybe?) Extract images from source material
+- [X] Tikzpictures in slides
 - [ ] Seperate the dummy text into a demo folder, so that if somebody clones the project the paper, slides and poster fodlers are empty
+- [X] Configure pasteImage extension

@@ -48,3 +48,5 @@ This is my note.
 
 - Get in bed
 - Count sheep
+
+![pasteImage extension](slides/images/pasteimage.png)

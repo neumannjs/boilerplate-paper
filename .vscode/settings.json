@@ -9,5 +9,8 @@
     "root": "/output",
     "mount": [["/reveal.js", "./reveal.js"],
               ["/output", "./output"]]
-  }
+  },
+  "pasteImage.basePath": "${projectRoot}",
+  "pasteImage.path": "${currentFileDir}/images",
+  "pasteImage.showFilePathConfirmInputBox": true
 }
