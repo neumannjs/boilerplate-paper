@@ -15,4 +15,4 @@ jobs:
       - name: Checkout poster folder
         uses: actions/checkout@v2
       - name: List contents
-        run: ls
+        run: ls poster/*.md
