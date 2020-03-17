@@ -12,10 +12,12 @@ jobs:
     name: Build poster PDF
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Run Pandoc
         uses: docker://pandoc/latex:2.9
         with:
-          args: ./poster/*.md --defaults=./defaults/poster.yaml
+          args: poster/*.md --defaults=defaults/poster.yaml
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
