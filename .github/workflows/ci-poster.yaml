@@ -14,9 +14,8 @@ jobs:
     steps:
       - name: Run Pandoc
         uses: docker://pandoc/latex:2.9
-        args: >-
-          --defaults=defaults/poster.yaml
-          poster/*.md
+        with:
+          args: poster/*.md --defaults=defaults/poster.yaml
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
