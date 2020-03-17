@@ -1,0 +1,20 @@
+name: Greet Everyone
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'poster/**'
+
+jobs:
+  build:
+    name: Build poster PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout poster folder
+        uses: actions/checkout@v2
+        with:
+          path: poster
+      - name: List contents
+        run: ls ./poster/*.md
