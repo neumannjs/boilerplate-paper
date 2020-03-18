@@ -10,7 +10,6 @@ metadata:
 
 filters:
 - pandoc-citeproc
-- pandoc-crossref
 - ./style/git-revision.lua
 - ./style/metadata-replace.lua
 - ./style/poster-block.lua
