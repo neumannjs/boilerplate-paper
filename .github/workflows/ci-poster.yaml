@@ -17,7 +17,7 @@ jobs:
       - name: Download Bibtex file
         run: curl https://www.dropbox.com/s/r3gxfmijiqfd62d/library.bib?dl=1 -o bibtex.bib
       - name: Run Pandoc
-        uses: docker://pandoc/latex:2.9
+        uses: docker://pandoc/latex:2.9.2
         with:
           args: poster/*.md --defaults=defaults/poster.yaml
       - name: Upload artifacts
