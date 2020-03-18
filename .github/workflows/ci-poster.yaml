@@ -24,7 +24,13 @@ jobs:
       - name: Run Pandoc
         uses: docker://pandoc/latex:2.9.2
         with:
-          args: ${{ steps.input_files.outputs.md_files }} --defaults=defaults/poster.yaml
+          entrypoint: /bin/sh
+          args: >-
+            -c "
+             tlmgr update --self &&
+             tlmgr install beamerposter &&
+             pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }}
+            "
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
