@@ -17,7 +17,7 @@ jobs:
       - name: Download Bibtex file
         run: curl https://www.dropbox.com/s/r3gxfmijiqfd62d/library.bib?raw=1 -L -o bibtex.bib
       - name: Make output folder
-        run: mkdir output
+        run: mkdir output && mkdir output/images
       - name: List markdown files
         run: echo "::set-output name=md_files::$(ls -1 paper/*.md | tr  '\n' ' ')"
         id: input_files
