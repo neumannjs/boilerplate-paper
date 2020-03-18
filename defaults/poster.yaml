@@ -9,6 +9,7 @@ metadata:
   csl: ./style/elsevier.csl
 
 filters:
+- pandoc-crossref
 - pandoc-citeproc
 - ./style/git-revision.lua
 - ./style/metadata-replace.lua

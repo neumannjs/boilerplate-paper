@@ -29,6 +29,8 @@ jobs:
             -c "
              tlmgr update --self &&
              tlmgr install beamerposter type1cm libertine inconsolata newtx txfonts &&
+             curl https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2/linux-pandoc_2_9_2.tar.gz -L -O &&
+             sudo tar -C /usr/bin -zxvf linux-pandoc_2_9_2.tar.gz &&
              pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }}
             "
       - name: Upload artifacts
