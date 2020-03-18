@@ -1,0 +1,40 @@
+name: CI Poster
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'paper/**'
+
+jobs:
+  build:
+    name: Build paper PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download Bibtex file
+        run: curl https://www.dropbox.com/s/r3gxfmijiqfd62d/library.bib?raw=1 -L -o bibtex.bib
+      - name: Make output folder
+        run: mkdir output
+      - name: List markdown files
+        run: echo "::set-output name=md_files::$(ls -1 paper/*.md | tr  '\n' ' ')"
+        id: input_files
+      - name: Run Pandoc
+        uses: docker://pandoc/latex:2.9.2
+        with:
+          entrypoint: /bin/sh
+          args: >-
+            -c "
+             apk add curl &&
+             apk add git &&
+             curl https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2/linux-pandoc_2_9_2.tar.gz -L -O &&
+             tar -C /usr/bin -zxvf linux-pandoc_2_9_2.tar.gz &&
+             pandoc --defaults=defaults/paper.yaml ${{ steps.input_files.outputs.md_files }}
+            "
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: output
+          path: output
