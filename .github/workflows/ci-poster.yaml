@@ -17,7 +17,7 @@ jobs:
       - name: Download Bibtex file
         run: curl https://www.dropbox.com/s/r3gxfmijiqfd62d/library.bib?dl=1 -o bibtex.bib
       - name: Copy poster folder files to root
-        run: rm *.md;cp poster/*.md .
+        run: rm *.md 2> /dev/null;cp poster/*.md .
       - name: List markdown files
         run: echo "::set-output name=md_files::$(ls -1 *.md | tr  '\n' ' ')"
         id: input_files
