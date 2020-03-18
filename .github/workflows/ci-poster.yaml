@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Download Bibtex file
+        run: curl https://www.dropbox.com/s/r3gxfmijiqfd62d/library.bib?dl=1 -o bibtex.bib
       - name: Run Pandoc
         uses: docker://pandoc/latex:2.9
         with:

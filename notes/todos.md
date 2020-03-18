@@ -19,3 +19,4 @@
 - [X] Configure pasteImage extension
 - [X] Tikz in separate files
 - [ ] Github Actions build job
+- [ ] Use environment variables files for local build and github actions build
