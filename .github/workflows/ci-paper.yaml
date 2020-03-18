@@ -1,4 +1,4 @@
-name: CI Poster
+name: CI Paper
 # This workflow is triggered on pushes to the repository.
 on:
   push:
