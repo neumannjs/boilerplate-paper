@@ -28,7 +28,7 @@ jobs:
           args: >-
             -c "
              tlmgr update --self &&
-             tlmgr install beamerposter &&
+             tlmgr install beamerposter type1cm &&
              pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }}
             "
       - name: Upload artifacts
