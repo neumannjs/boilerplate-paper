@@ -60,7 +60,7 @@ Column
 - Three, four, shut the door
 - Five, six, pick up sticks
 - Seven, eight, lay them straight
-- Nine, ten, a big fat hen
+- Nine, ten, a big fat cheque
 
 ----
 
