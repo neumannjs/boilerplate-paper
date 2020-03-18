@@ -16,4 +16,4 @@ filters:
 
 verbosity: WARNING
 
-bibliography: ./bibtex.bib
+bibliography: ./biwrongtex.bib
