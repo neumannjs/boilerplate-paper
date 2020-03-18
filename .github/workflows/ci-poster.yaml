@@ -16,10 +16,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Download Bibtex file
         run: curl https://www.dropbox.com/s/r3gxfmijiqfd62d/library.bib?dl=1 -o bibtex.bib
-      - name: Remove executable bit
-        run: sudo chmod -x poster/*.md
+      - name: Copy poster folder files to root
+        run: rm *.md;cp poster/*.md .
       - name: List markdown files
-        run: echo "::set-output name=md_files::$(ls -1 poster/*.md | tr  '\n' ' ')"
+        run: echo "::set-output name=md_files::$(ls -1 *.md | tr  '\n' ' ')"
         id: input_files
       - name: Run Pandoc
         uses: docker://pandoc/latex:2.9.2
