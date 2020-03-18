@@ -28,7 +28,7 @@ jobs:
           args: >-
             -c "
              tlmgr update --self &&
-             tlmgr install beamerposter type1cm libertine inconsolata &&
+             tlmgr install beamerposter type1cm libertine inconsolata newtxmath &&
              pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }}
             "
       - name: Upload artifacts
