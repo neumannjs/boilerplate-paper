@@ -4,8 +4,8 @@ T         46
 
 ## Overview
 
-* This is the template I created for my poster presentations.
-* You can provide an optional \texttt{\textbackslash footimage}.
+* This is the template I created for my poster presentations. [@Dam2020]
+* You can provide an optional \texttt{\textbackslash footimage}. [@Herrera-Joancomart2015]
 
 ----
 
