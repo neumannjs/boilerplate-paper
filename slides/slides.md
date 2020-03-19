@@ -4,6 +4,7 @@
 
 - Turn off alarm [@Breuker2013]
 - Get out of bed [@Chaum1981]
+- Eat
 
 ::: notes
 
