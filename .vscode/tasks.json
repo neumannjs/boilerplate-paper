@@ -42,6 +42,26 @@
       }
     },
     {
+      "label": "Paper to TEX",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "${workspaceFolder}/paper",
+        "-defaults",
+        "${workspaceFolder}/defaults/paper.yaml",
+        "-output",
+        "${workspaceFolder}/output/paper.tex",
+        "-to",
+        "latex"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
       "label": "Poster to PDF",
       "type": "shell",
       "command": "${workspaceFolder}\\tasks\\build.ps1",
