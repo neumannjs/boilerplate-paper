@@ -21,4 +21,4 @@ filters:
 
 verbosity: WARNING
 
-bibliography: C:/Users/Gijs van Dam/Documents/library.bib
+bibliography: ./output/bibtex.bib

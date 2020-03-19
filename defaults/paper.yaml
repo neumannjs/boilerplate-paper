@@ -16,6 +16,6 @@ filters:
 
 verbosity: WARNING
 
-bibliography: ./bibtex.bib
+bibliography: ./output/bibtex.bib
 
 number-sections: true
