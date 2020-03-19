@@ -34,7 +34,7 @@ jobs:
              tar -C /usr/bin -zxvf linux-pandoc_2_9_2.tar.gz &&
              rm linux-pandoc_2_9_2.tar.gz &&
              pandoc --defaults=defaults/poster.yaml --output=output/poster.tex --to=latex ${{ steps.input_files.outputs.md_files }} &&
-             texliveonfly output/paper.tex &&
+             texliveonfly output/poster.tex &&
              pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }}
             "
       - name: Upload artifacts
