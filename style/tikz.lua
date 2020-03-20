@@ -18,6 +18,9 @@ local function tikz2image(src, filetype, outfile)
     f:write(src)
     f:write("\n\\end{document}\n")
     f:close()
+    if tmpdir == "/tmp/" then
+        os.execute("texliveonfly " .. tmp)
+    end
     os.execute("pdflatex -output-directory " .. tmpdir  .. " " .. tmp)
     if filetype == 'pdf' then
         os.rename(tmp .. ".pdf", outfile)

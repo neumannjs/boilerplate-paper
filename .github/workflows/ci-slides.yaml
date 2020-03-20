@@ -32,7 +32,7 @@ jobs:
           args: >-
             -c "
              tlmgr update --self &&
-             tlmgr install standalone pgf pgfplots &&
+             tlmgr install texliveonfly &&
              apk add curl git &&
              apk add pdf2svg --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
              curl https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2/linux-pandoc_2_9_2.tar.gz -L -O &&
