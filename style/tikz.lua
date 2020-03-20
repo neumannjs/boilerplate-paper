@@ -1,6 +1,10 @@
 local function tikz2image(src, filetype, outfile)
     local tmp = os.tmpname()
-    local f = io.open("./output" .. tmp .. ".tex", 'w')
+    local f, err = io.open("./output" .. tmp .. ".tex", 'w')
+    if f==nil then
+        print(tmp) 
+        print("Couldn't open file: "..err)
+    end
     f:write(
         "\\documentclass{standalone}\n\\usepackage{standalone}\n\\usepackage{xcolor}\n\\usepackage{tikz}\n\\usetikzlibrary{graphs, graphs.standard, quotes, arrows,shapes,positioning}\n\\usepackage{pgfplots}\n\\usepgfplotslibrary{units}\n\\begin{document}\n\\nopagecolor\n")
     f:write(src)
