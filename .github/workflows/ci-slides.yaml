@@ -26,7 +26,7 @@ jobs:
         run: echo "::set-output name=md_files::$(ls -1 slides/*.md | tr  '\n' ' ')"
         id: input_files
       - name: Run Pandoc
-        uses: docker://pandoc/core:2.9.2
+        uses: docker://pandoc/latex:2.9.2
         with:
           entrypoint: /bin/sh
           args: >-
