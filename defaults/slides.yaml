@@ -17,6 +17,7 @@ filters:
 - pandoc-citeproc
 - ./style/git-revision.lua
 - ./style/metadata-replace.lua
+- ./style/tikz.lua
 
 verbosity: WARNING
 

@@ -18,5 +18,9 @@
 - [ ] Seperate the dummy text into a demo folder, so that if somebody clones the project the paper, slides and poster folders are empty
 - [X] Configure pasteImage extension
 - [X] Tikz in separate files
-- [ ] Github Actions build job
-- [ ] Use environment variables files for local build and github actions build
+- [X] Github Actions build job
+- [X] Use environment variables files for local build and github actions build
+- [ ] Create task for pushing slides to gh-pages branch.
+- [ ] Make Tikz.lua filter run on Pandoc Alpine Docker
+- [ ] Fix git revision bug in Github Actions build
+- [ ] Write documentation
