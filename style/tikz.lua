@@ -1,6 +1,9 @@
 local function tikz2image(src, filetype, outfile)
     local tmp = os.tmpname()
-    local f, err = io.open("./output" .. tmp .. ".tex", 'w')
+    if not starts_with("/tmp/", tmp) then
+        tmp = "./output" .. tmp
+    end
+    local f, err = io.open(tmp .. ".tex", 'w')
     if f==nil then
         print(tmp) 
         print("Couldn't open file: "..err)
@@ -10,19 +13,18 @@ local function tikz2image(src, filetype, outfile)
     f:write(src)
     f:write("\n\\end{document}\n")
     f:close()
-    os.execute("pdflatex -output-directory " .. ".\\output" .. " " ..
-                   "./output" .. tmp)
+    os.execute("pdflatex -output-directory " .. ".\\output " .. tmp)
     if filetype == 'pdf' then
-        os.rename("./output" .. tmp .. ".pdf", outfile)
+        os.rename(tmp .. ".pdf", outfile)
     elseif filetype == 'png' then
-        os.execute("magick convert  -density 300 -antialias ./output" .. tmp .. ".pdf -quality 100 " .. outfile)
+        os.execute("magick convert  -density 300 -antialias " .. tmp .. ".pdf -quality 100 " .. outfile)
     else
-        os.execute("pdf2svg ./output" .. tmp .. ".pdf " .. outfile)
+        os.execute("pdf2svg " .. tmp .. ".pdf " .. outfile)
     end
-    os.remove("./output" .. tmp .. ".tex")
-    os.remove("./output" .. tmp .. ".pdf")
-    os.remove("./output" .. tmp .. ".log")
-    os.remove("./output" .. tmp .. ".aux")
+    os.remove(tmp .. ".tex")
+    os.remove(tmp .. ".pdf")
+    os.remove(tmp .. ".log")
+    os.remove(tmp .. ".aux")
 end
 
 extension_for = {
