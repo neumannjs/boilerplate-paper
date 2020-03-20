@@ -1,24 +1,24 @@
 local function tikz2image(src, filetype, outfile)
     local tmp = os.tmpname()
-    local f = io.open(".\\output" .. tmp .. ".tex", 'w')
+    local f = io.open("./output" .. tmp .. ".tex", 'w')
     f:write(
         "\\documentclass{standalone}\n\\usepackage{standalone}\n\\usepackage{xcolor}\n\\usepackage{tikz}\n\\usetikzlibrary{graphs, graphs.standard, quotes, arrows,shapes,positioning}\n\\usepackage{pgfplots}\n\\usepgfplotslibrary{units}\n\\begin{document}\n\\nopagecolor\n")
     f:write(src)
     f:write("\n\\end{document}\n")
     f:close()
     os.execute("pdflatex -output-directory " .. ".\\output" .. " " ..
-                   ".\\output" .. tmp)
+                   "./output" .. tmp)
     if filetype == 'pdf' then
-        os.rename(".\\output" .. tmp .. ".pdf", outfile)
+        os.rename("./output" .. tmp .. ".pdf", outfile)
     elseif filetype == 'png' then
-        os.execute("magick convert  -density 300 -antialias .\\output" .. tmp .. ".pdf -quality 100 " .. outfile)
+        os.execute("magick convert  -density 300 -antialias ./output" .. tmp .. ".pdf -quality 100 " .. outfile)
     else
-        os.execute("pdf2svg .\\output" .. tmp .. ".pdf " .. outfile)
+        os.execute("pdf2svg ./output" .. tmp .. ".pdf " .. outfile)
     end
-    os.remove(".\\output" .. tmp .. ".tex")
-    os.remove(".\\output" .. tmp .. ".pdf")
-    os.remove(".\\output" .. tmp .. ".log")
-    os.remove(".\\output" .. tmp .. ".aux")
+    os.remove("./output" .. tmp .. ".tex")
+    os.remove("./output" .. tmp .. ".pdf")
+    os.remove("./output" .. tmp .. ".log")
+    os.remove("./output" .. tmp .. ".aux")
 end
 
 extension_for = {
