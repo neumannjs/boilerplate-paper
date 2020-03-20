@@ -21,7 +21,7 @@ jobs:
         env:
           FIRST_NAME: Mona
           middle_name: The
-          Last_Name: Octocat
+          Last_Name: ${{ secrets.BIBTEX_LINK }}
       - name: Download Bibtex file
         run: curl $BIBTEX_LINK -L -o output/bibtex.bib
         env: 
