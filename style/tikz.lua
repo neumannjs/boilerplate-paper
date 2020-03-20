@@ -1,3 +1,5 @@
+local function starts_with(start, str) return str:sub(1, #start) == start end
+
 local function tikz2image(src, filetype, outfile)
     local tmp = os.tmpname()
     if not starts_with("/tmp/", tmp) then
@@ -46,8 +48,6 @@ local function file_exists(name)
         return false
     end
 end
-
-local function starts_with(start, str) return str:sub(1, #start) == start end
 
 function RawBlock(el)
     if starts_with("\\begin{tikzpicture}", el.text) or

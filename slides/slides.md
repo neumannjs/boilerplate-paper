@@ -7,7 +7,7 @@
 
 ::: notes
 
-This is my note.
+This is my note
 
 - It can contain Markdown
 - like this list
