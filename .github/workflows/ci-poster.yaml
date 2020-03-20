@@ -19,7 +19,7 @@ jobs:
       - name: Download Bibtex file
         run: curl $BIBTEX_LINK -L -o output/bibtex.bib
         env: 
-          BIBTEX_LINK: {{ secrets.BIBTEX_LINK }}
+          BIBTEX_LINK: ${{ secrets.BIBTEX_LINK }}
       - name: List markdown files
         run: echo "::set-output name=md_files::$(ls -1 poster/*.md | tr  '\n' ' ')"
         id: input_files
