@@ -17,9 +17,9 @@ jobs:
       - name: Make output folder
         run: mkdir output && mkdir output/images
       - name: Download Bibtex file
+        run: curl $BIBTEX_LINK -L -o output/bibtex.bib
         env: 
           BIBTEX_LINK: {{ secrets.BIBTEX_LINK }}
-        run: curl $BIBTEX_LINK -L -o output/bibtex.bib
       - name: List markdown files
         run: echo "::set-output name=md_files::$(ls -1 poster/*.md | tr  '\n' ' ')"
         id: input_files
