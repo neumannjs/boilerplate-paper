@@ -3,9 +3,12 @@ local function starts_with(start, str) return str:sub(1, #start) == start end
 local function tikz2image(src, filetype, outfile)
     local tmp = os.tmpname()
     local tmpdir = "./output"
+    -- Horrible way to check whether on Linux or Windows using the folder tmpname returns
     if not starts_with("/tmp/", tmp) then
+        --Windows
         tmp = "./output" .. tmp
     else
+        -- Linux
         tmpdir = "/tmp/"
     end
     local f, err = io.open(tmp .. ".tex", 'w')
