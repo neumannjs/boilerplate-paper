@@ -38,7 +38,8 @@ jobs:
              git status
              pandoc --defaults=defaults/paper.yaml --output=output/paper.tex --to=latex ${{ steps.input_files.outputs.md_files }} &&
              texliveonfly output/paper.tex &&
-             git status
+             ls &&
+             ls output &&
              pandoc --defaults=defaults/paper.yaml ${{ steps.input_files.outputs.md_files }}
             "
       - name: Upload artifacts
