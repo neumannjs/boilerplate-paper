@@ -36,7 +36,7 @@ jobs:
              tar -C /usr/bin -zxvf linux-pandoc_2_9_2.tar.gz &&
              rm linux-pandoc_2_9_2.tar.gz &&
              pandoc --defaults=defaults/paper.yaml --output=output/paper-pre.tex --to=latex ${{ steps.input_files.outputs.md_files }} &&
-             texliveonfly --help &&
+             texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=output' output/paper-pre.tex &&
              git status &&
              pandoc --defaults=defaults/paper.yaml ${{ steps.input_files.outputs.md_files }}
             "
