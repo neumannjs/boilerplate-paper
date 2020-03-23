@@ -21,7 +21,7 @@ jobs:
           path: '.vscode/settings.json'
           prop_path: 'boilerplate-paper.demo'
       - name: test demo
-        run: echo ${{steps.version.outputs.prop}}
+        run: echo ${{steps.demo.outputs.prop}}
       - name: Make output folder
         run: mkdir output && mkdir output/images
       - name: Download Bibtex file
