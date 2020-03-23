@@ -37,7 +37,9 @@ jobs:
              rm linux-pandoc_2_9_2.tar.gz &&
              pandoc --defaults=defaults/poster.yaml --output=output/poster.tex --to=latex ${{ steps.input_files.outputs.md_files }} &&
              texliveonfly output/poster.tex &&
-             pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }}
+             pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }} &&
+             cd output &&
+             find . ! -name 'paper.pdf' -type f -exec rm -f {} +
             "
       - name: Upload artifacts
         uses: actions/upload-artifact@master
