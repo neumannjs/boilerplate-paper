@@ -22,7 +22,7 @@ Column
 
 ## Caveats
 
-- Nothing too complicated! 
+- Nothing too complicated!
 - No verbatim or fragile stuff!
 - Alternatives: latex markdown package, wikitobeamer
 

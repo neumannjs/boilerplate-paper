@@ -38,7 +38,9 @@ jobs:
              pandoc --defaults=defaults/paper.yaml --output=output/paper-pre.tex --to=latex ${{ steps.input_files.outputs.md_files }} &&
              texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=output' output/paper-pre.tex &&
              git status &&
-             pandoc --defaults=defaults/paper.yaml ${{ steps.input_files.outputs.md_files }}
+             pandoc --defaults=defaults/paper.yaml ${{ steps.input_files.outputs.md_files }} &&
+             cd output &&
+             find . ! -name 'paper.pdf' -type f -exec rm -f {} +
             "
       - name: Upload artifacts
         uses: actions/upload-artifact@master
