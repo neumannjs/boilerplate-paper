@@ -39,7 +39,7 @@ jobs:
              texliveonfly  --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=output' output/poster-pre.tex &&
              pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }} &&
              cd output &&
-             find . ! -name 'paper.pdf' -type f -exec rm -f {} +
+             find . ! -name 'poster.pdf' -type f -exec rm -f {} +
             "
       - name: Upload artifacts
         uses: actions/upload-artifact@master
