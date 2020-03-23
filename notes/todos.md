@@ -21,6 +21,7 @@
 - [X] Github Actions build job
 - [X] Use environment variables files for local build and github actions build
 - [ ] Create task for pushing slides to gh-pages branch.
-- [ ] Make Tikz.lua filter run on Pandoc Alpine Docker
+- [X] Make Tikz.lua filter run on Pandoc Alpine Docker
 - [ ] Fix git revision bug in Github Actions build
 - [ ] Write documentation
+- [ ] Install ImageMagick on Pandoc Alpine Docker
