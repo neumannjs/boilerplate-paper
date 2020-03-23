@@ -12,5 +12,6 @@
   },
   "pasteImage.basePath": "${projectRoot}",
   "pasteImage.path": "${currentFileDir}/images",
-  "pasteImage.showFilePathConfirmInputBox": true
+  "pasteImage.showFilePathConfirmInputBox": true,
+  "boilerplate-paper.demo": true
 }

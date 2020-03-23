@@ -1,0 +1,24 @@
+from: markdown
+to: revealjs
+
+output-file: ./output/slides.html
+
+standalone: true
+self-contained: false
+extract-media: output/images
+
+metadata:
+  csl: ./style/elsevier.csl
+
+# variables:
+#   date: 2020-03-10
+
+filters:
+- pandoc-citeproc
+- ./style/git-revision.lua
+- ./style/metadata-replace.lua
+- ./style/tikz.lua
+
+verbosity: WARNING
+
+bibliography: ./output/bibtex.bib

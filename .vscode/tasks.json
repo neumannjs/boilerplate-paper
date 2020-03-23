@@ -4,6 +4,16 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Test setting",
+      "type": "shell",
+      "command": "echo ${config:boilerplate-paper.demo}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
       "label": "Paper to PDF",
       "type": "shell",
       "command": "${workspaceFolder}\\tasks\\build.ps1",

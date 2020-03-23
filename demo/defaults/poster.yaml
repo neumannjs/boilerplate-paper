@@ -1,0 +1,20 @@
+from: markdown
+to: pdf
+
+template: ./style/poster.tex
+
+output-file: ./output/poster.pdf
+
+metadata:
+  csl: ./style/elsevier.csl
+
+filters:
+- pandoc-crossref
+- pandoc-citeproc
+- ./style/git-revision.lua
+- ./style/metadata-replace.lua
+- ./style/poster-block.lua
+
+verbosity: WARNING
+
+bibliography: ./output/bibtex.bib
