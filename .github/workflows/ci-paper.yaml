@@ -16,7 +16,7 @@ jobs:
         id: demo
         uses: notiz-dev/github-action-json-property@release
         with: 
-          path: '.vscode/settings.json'
+          path: './.vscode/settings.json'
           prop_path: 'boilerplate-paper.demo'
       - name: test demo
         run: echo ${{steps.version.outputs.prop}}
