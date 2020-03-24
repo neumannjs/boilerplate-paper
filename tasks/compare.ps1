@@ -21,10 +21,10 @@ $OrginalFile = resolve $OrginalFile
 $RevisedFile = resolve $RevisedFile
 
 # Resolve the folder, because the file might not exits
-$SaveAsPath = resolve $SaveAsFileName.Substring(0, $SaveAsFileName.LastIndexOf("\") + 1)
+$SaveAsPath = resolve $SaveAsFileName.Substring(0, $SaveAsFileName.LastIndexOf("/") + 1)
 
 # Append the filename to the resolved folder
-$SaveAsFileName = $SaveAsPath + $SaveAsFileName.Substring($SaveAsFileName.LastIndexOf("\") + 1, $SaveAsFileName.length - $SaveAsFileName.LastIndexOf("\") -1 )
+$SaveAsFileName = $SaveAsPath + $SaveAsFileName.Substring($SaveAsFileName.LastIndexOf("/") + 1, $SaveAsFileName.length - $SaveAsFileName.LastIndexOf("/") -1 )
 
 # Constants
 $wdDoNotSaveChanges = 0
