@@ -17,7 +17,7 @@
     "pasteImage.path":  "${currentFileDir}/images",
     "pasteImage.showFilePathConfirmInputBox":  true,
     "boilerplatePaper":  {
-                             "inputPath":  "project",
+                             "inputPath":  "demo",
                              "bibliography":  "C:/Users/Gijs van Dam/Documents/library.bib"
                          }
 }
