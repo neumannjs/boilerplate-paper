@@ -1,11 +1,11 @@
 from: markdown
 to: revealjs
 
-output-file: ./output/slides.html
+output-file: ../output/slides.html
 
 standalone: true
 self-contained: false
-extract-media: output/images
+extract-media: ../output/images
 
 metadata:
   csl: ./style/elsevier.csl
@@ -15,10 +15,8 @@ metadata:
 
 filters:
 - pandoc-citeproc
-- ./style/git-revision.lua
-- ./style/metadata-replace.lua
-- ./style/tikz.lua
+- ../filters/git-revision.lua
+- ../filters/metadata-replace.lua
+- ../filters/tikz.lua
 
 verbosity: WARNING
-
-bibliography: ./output/bibtex.bib

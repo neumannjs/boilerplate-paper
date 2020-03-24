@@ -1,4 +1,4 @@
 ---
-title: My Slideshow
+title: My DEMO Slideshow
 author: Gijs van Dam
 ---

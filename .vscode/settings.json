@@ -1,19 +1,23 @@
 {
-  "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  },
-  "liveServer.settings": {
-    "root": "/output",
-    "mount": [["/reveal.js", "./reveal.js"],
-              ["/output", "./output"]]
-  },
-  "pasteImage.basePath": "${projectRoot}",
-  "pasteImage.path": "${currentFileDir}/images",
-  "pasteImage.showFilePathConfirmInputBox": true,
-  "boilerplate-paper": {
-    "demo": "true"
-  }
+    "files.exclude":  {
+                          "**/.classpath":  true,
+                          "**/.project":  true,
+                          "**/.settings":  true,
+                          "**/.factorypath":  true,
+                          "**/reveal.js":  true
+                      },
+    "liveServer.settings":  {
+                                "root":  "/output",
+                                "mount":  [
+                                            ["/reveal.js", "reveal.js"],
+                                            ["/output", "output"]
+                                          ]
+                            },
+    "pasteImage.basePath":  "${projectRoot}",
+    "pasteImage.path":  "${currentFileDir}/images",
+    "pasteImage.showFilePathConfirmInputBox":  true,
+    "boilerplatePaper":  {
+                             "inputPath":  "demo",
+                             "bibliography": "C:/Users/Gijs van Dam/Documents/library.bib"
+                         }
 }

@@ -2,11 +2,11 @@ local function starts_with(start, str) return str:sub(1, #start) == start end
 
 local function tikz2image(src, filetype, outfile)
     local tmp = os.tmpname()
-    local tmpdir = "./output"
+    local tmpdir = "../output"
     -- Horrible way to check whether on Linux or Windows using the folder tmpname returns
     if not starts_with("/tmp/", tmp) then
         --Windows
-        tmp = "./output" .. tmp
+        tmp = "../output" .. tmp
     else
         -- Linux
         tmpdir = "/tmp/"
@@ -45,7 +45,8 @@ extension_for = {
     latex = 'pdf',
     beamer = 'pdf',
     docx = 'png',
-    revealjs = 'svg'
+    revealjs = 'svg',
+    pptx = 'png'
 }
 
 local function file_exists(name)
@@ -63,7 +64,7 @@ function RawBlock(el)
         starts_with("\\tikzset", el.text) or
         starts_with("\\includestandalone", el.text) then
         local filetype = extension_for[FORMAT] or "svg"
-        local fname = "./output/images/" .. pandoc.sha1(el.text) .. "." .. filetype
+        local fname = "../output/images/" .. pandoc.sha1(el.text) .. "." .. filetype
         if not file_exists(fname) then
             print("Uncached image found, building:" .. fname)
             tikz2image(el.text, filetype, fname)

@@ -4,9 +4,10 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Test setting",
+      "label": "Set input path",
       "type": "shell",
-      "command": "echo ${config:boilerplate-paper.demo}",
+      "command": "${workspaceFolder}\\tasks\\input.ps1",
+      "args": ["${input:gitCommit}"],
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -19,10 +20,15 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/paper",
+        "paper",
         "-defaults",
-        "${workspaceFolder}/defaults/paper.yaml"
+        "defaults/paper.yaml",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -35,16 +41,21 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/paper",
+        "paper",
         "-defaults",
-        "${workspaceFolder}/defaults/paper.yaml",
+        "defaults/paper.yaml",
         "-referencedoc",
-        "${workspaceFolder}/style/reference.docx",
+        "style/reference.docx",
         "-output",
-        "${workspaceFolder}/output/paper.docx",
+        "../output/paper.docx",
         "-to",
-        "docx"
+        "docx",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -57,14 +68,19 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/paper",
+        "paper",
         "-defaults",
-        "${workspaceFolder}/defaults/paper.yaml",
+        "defaults/paper.yaml",
         "-output",
-        "${workspaceFolder}/output/paper.tex",
+        "../output/paper.tex",
         "-to",
-        "latex"
+        "latex",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -77,10 +93,15 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/poster",
+        "poster",
         "-defaults",
-        "${workspaceFolder}/defaults/poster.yaml"
+        "defaults/poster.yaml",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -93,18 +114,23 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/paper",
+        "paper",
         "-defaults",
-        "${workspaceFolder}/defaults/paper.yaml",
+        "defaults/paper.yaml",
         "-referencedoc",
-        "${workspaceFolder}/style/reference.docx",
+        "style/reference.docx",
         "-output",
-        "${workspaceFolder}/output/paper.docx",
+        "../output/paper.docx",
         "-to",
         "docx",
         "-commits",
-        "${input:gitCommit}"
+        "${input:gitCommit}",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -117,16 +143,21 @@
       "command": "${workspaceFolder}\\tasks\\compare.ps1",
       "args": [
         "-BaseFileName",
-        "${workspaceFolder}/output/paper.docx",
+        "../output/paper.docx",
         "-SaveAsFileName",
-        "${workspaceFolder}/output/paper-track-changes.docx",
+        "../output/paper-track-changes.docx",
         "-Author",
         "${env:USERNAME}",
         "-commits",
-        "${input:gitCommit}"
+        "${input:gitCommit}",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
       "dependsOn": "Paper to DOCX specific commit",
       "dependsOrder": "sequence",
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -139,10 +170,15 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/slides",
+        "slides",
         "-defaults",
-        "${workspaceFolder}/defaults/slides.yaml"
+        "defaults/slides.yaml",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -155,14 +191,19 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/slides",
+        "slides",
         "-defaults",
-        "${workspaceFolder}/defaults/slides.yaml",
+        "defaults/slides.yaml",
         "-to",
         "beamer",
         "-output",
-        "${workspaceFolder}/output/slides.pdf"
+        "../output/slides.pdf",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -175,14 +216,19 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/slides",
+        "slides",
         "-defaults",
-        "${workspaceFolder}/defaults/slides.yaml",
+        "defaults/slides.yaml",
         "-to",
         "pptx",
         "-output",
-        "${workspaceFolder}/output/slides.pptx"
+        "../output/slides.pptx",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -195,14 +241,19 @@
       "command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
-        "${workspaceFolder}/slides",
+        "slides",
         "-defaults",
-        "${workspaceFolder}/defaults/slides.yaml",
+        "defaults/slides.yaml",
         "-to",
         "json",
         "-output",
-        "${workspaceFolder}/output/slides.json"
+        "../output/slides.json",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -215,6 +266,12 @@
       "type": "promptString",
       "id": "gitCommit",
       "description": "Specify abbreviated commit hash(es)."
+    },
+    {
+      "type": "promptString",
+      "id": "inputPath",
+      "description": "Specify the input path for the build tasks",
+      "default": "demo"
     }
   ]
 }

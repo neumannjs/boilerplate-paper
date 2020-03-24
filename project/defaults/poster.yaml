@@ -3,7 +3,7 @@ to: pdf
 
 template: ./style/poster.tex
 
-output-file: ./output/poster.pdf
+output-file: ../output/poster.pdf
 
 metadata:
   csl: ./style/elsevier.csl
@@ -11,10 +11,8 @@ metadata:
 filters:
 - pandoc-crossref
 - pandoc-citeproc
-- ./style/git-revision.lua
-- ./style/metadata-replace.lua
-- ./style/poster-block.lua
+- ../filters/git-revision.lua
+- ../filters/metadata-replace.lua
+- ../filters/poster-block.lua
 
 verbosity: WARNING
-
-bibliography: ./output/bibtex.bib
