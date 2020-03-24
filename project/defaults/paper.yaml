@@ -1,7 +1,7 @@
 from: markdown
 to: pdf
 
-output-file: ./output/paper.pdf
+output-file: ../output/paper.pdf
 
 include-in-header: [./style/preamble.tex]
 
@@ -13,6 +13,7 @@ filters:
 - pandoc-citeproc
 - ../filters/git-revision.lua
 - ../filters/metadata-replace.lua
+- ../filters/tikz.lua
 
 verbosity: WARNING
 

@@ -234,31 +234,6 @@
         "reveal": "always",
         "panel": "shared"
       }
-    },
-    {
-      "label": "Slides to JSON",
-      "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
-      "args": [
-        "-source",
-        "slides",
-        "-defaults",
-        "defaults/slides.yaml",
-        "-to",
-        "json",
-        "-output",
-        "../output/slides.json",
-        "-bibliography",
-        "${config:boilerplatePaper.bibliography}"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
-      },
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      }
     }
   ],
   "inputs": [
