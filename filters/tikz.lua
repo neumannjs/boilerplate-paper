@@ -22,8 +22,8 @@ local function tikz2image(src, filetype, outfile)
     f:write("\n\\end{document}\n")
     f:close()
     if tmpdir == "/tmp/" then
-        print("texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' " .. tmp)
-        os.execute("texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' " .. tmp)
+        print("texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=".. tmpdir .. "' " .. tmp)
+        os.execute("texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=".. tmpdir .. "' " .. tmp)
     else
         os.execute("pdflatex -output-directory " .. tmpdir  .. " " .. tmp)
     end
