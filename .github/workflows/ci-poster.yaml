@@ -41,7 +41,7 @@ jobs:
              rm linux-pandoc_2_9_2.tar.gz &&
              cd ${{steps.inputPath.outputs.prop}} &&
              pandoc --defaults=defaults/poster.yaml --output=../output/poster-pre.tex --to=latex --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
-             texliveonfly  --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' ../output/poster-pre.tex &&
+             texliveonfly  --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output ' ../output/poster-pre.tex &&
              pandoc --defaults=defaults/poster.yaml --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
              cd ../output &&
              find . ! -name 'poster.pdf' -type f -exec rm -f {} +
