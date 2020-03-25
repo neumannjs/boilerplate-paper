@@ -9,7 +9,7 @@
 
 This is my note.
 
-- It can contain Markdown!
+- It can contain Markdown
 - like this list
 
 :::
