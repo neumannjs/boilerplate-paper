@@ -44,7 +44,7 @@ jobs:
              echo 'pandoc-step-1' &&
              ls ../output &&
              ls /tmp &&
-             ls ./images &&
+             ls ../output/images &&
              texliveonfly  --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' ../output/poster-pre.tex &&
              echo 'texliveonfly-step-1' &&
              ls ../output &&
