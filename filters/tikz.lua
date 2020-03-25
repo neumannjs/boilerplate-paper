@@ -3,14 +3,13 @@ local function starts_with(start, str) return str:sub(1, #start) == start end
 local function tikz2image(src, filetype, outfile)
     local tmp = os.tmpname()
     local tmpdir = "../output"
-    -- Horrible way to check whether on Linux or Windows using the folder tmpname returns
-    if not starts_with("/tmp/", tmp) then
-        --Windows
-        tmp = "../output" .. tmp
-    else
+    local debian = false
+    if starts_with("/tmp/", tmp) then
         -- Linux
-        tmpdir = "/tmp/"
+        debian = true
+        tmpdir = tmpdir:gsub("/tmp", "")
     end
+    tmp = tmpdir .. tmp
     local f, err = io.open(tmp .. ".tex", 'w')
     if f==nil then
         print(tmp) 
@@ -21,9 +20,9 @@ local function tikz2image(src, filetype, outfile)
     f:write(src)
     f:write("\n\\end{document}\n")
     f:close()
-    if tmpdir == "/tmp/" then
+    if debian then
         print("texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=".. tmpdir .. "' " .. tmp)
-        os.execute("texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=/tmp' " .. tmp)
+        os.execute("texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=".. tmpdir .. "' " .. tmp)
     else
         os.execute("pdflatex -output-directory " .. tmpdir  .. " " .. tmp)
     end
