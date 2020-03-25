@@ -43,7 +43,7 @@ jobs:
              pandoc --defaults=defaults/poster.yaml --output=../output/poster-pre.tex --to=latex --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
              echo 'pandoc-step-1' &&
              ls ../output &&
-             ls ../tmp &&
+             ls /tmp &&
              ls ../images &&
              texliveonfly  --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' ../output/poster-pre.tex &&
              echo 'texliveonfly-step-1' &&
