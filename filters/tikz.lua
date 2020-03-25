@@ -28,8 +28,12 @@ local function tikz2image(src, filetype, outfile)
         os.execute("pdflatex -output-directory " .. tmpdir  .. " " .. tmp)
     end
     if filetype == 'pdf' then
-        os.rename(tmp .. ".pdf", outfile)
-        print("renamed file from " .. tmp .. "to " .. outfile)
+        f, err = os.rename(tmp .. ".pdf", outfile)
+        if f==nil then
+            print("renaming error: " .. err)
+        else
+            print("renamed file from " .. tmp .. ".pdf to " .. outfile)
+        end
     elseif filetype == 'png' then
         os.execute("magick convert  -density 300 -antialias " .. tmp .. ".pdf -quality 100 " .. outfile)
     else
