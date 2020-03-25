@@ -14,12 +14,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: CSheck input path
+        id: inputPath
+        uses: notiz-dev/github-action-json-property@release
+        with: 
+          path: '.vscode/settings.json'
+          prop_path: 'boilerplatePaper.inputPath'
       - name: Download Bibtex file
         run: curl $BIBTEX_LINK -L -o output/bibtex.bib
         env: 
           BIBTEX_LINK: ${{ secrets.BIBTEX_LINK }}
       - name: List markdown files
-        run: echo "::set-output name=md_files::$(ls -1 poster/*.md | tr  '\n' ' ')"
+        run: cd ${{steps.inputPath.outputs.prop}} && echo "::set-output name=md_files::$(ls -1 poster/*.md | tr  '\n' ' ')"
         id: input_files
       - name: Run Pandoc
         uses: docker://pandoc/latex:2.9.2
@@ -33,10 +39,10 @@ jobs:
              curl https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2/linux-pandoc_2_9_2.tar.gz -L -O &&
              tar -C /usr/bin -zxvf linux-pandoc_2_9_2.tar.gz &&
              rm linux-pandoc_2_9_2.tar.gz &&
-             pandoc --defaults=defaults/poster.yaml --output=output/poster-pre.tex --to=latex ${{ steps.input_files.outputs.md_files }} &&
-             texliveonfly  --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=output' output/poster-pre.tex &&
-             pandoc --defaults=defaults/poster.yaml ${{ steps.input_files.outputs.md_files }} &&
-             cd output &&
+             pandoc --defaults=defaults/poster.yaml --output=../output/poster-pre.tex --to=latex --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
+             texliveonfly  --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' ../output/poster-pre.tex &&
+             pandoc --defaults=defaults/poster.yaml --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
+             cd ../output &&
              find . ! -name 'poster.pdf' -type f -exec rm -f {} +
             "
       - name: Upload artifacts
