@@ -43,7 +43,7 @@ jobs:
              rm linux-pandoc_2_9_2.tar.gz &&
              cd ${{steps.inputPath.outputs.prop}} &&
              pandoc --defaults=defaults/paper.yaml --output=../output/paper-pre.tex --to=latex --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
-             texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' ../output/paper-pre.tex ;
+             texliveonfly --terminal_only --arguments='-synctex=1 -interaction=nonstopmode -output-directory=../output' ../output/paper-pre.tex &&
              pandoc --defaults=defaults/paper.yaml --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
              cd ../output &&
              find . ! -name 'paper.pdf' -type f -exec rm -f {} +

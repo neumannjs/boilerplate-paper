@@ -14,5 +14,6 @@ filters:
 - ../filters/git-revision.lua
 - ../filters/metadata-replace.lua
 - ../filters/poster-block.lua
+- ../filters/tikz.lua
 
 verbosity: WARNING
