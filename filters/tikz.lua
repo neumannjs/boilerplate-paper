@@ -7,7 +7,7 @@ local function tikz2image(src, filetype, outfile)
     if starts_with("/tmp/", tmp) then
         -- Linux
         debian = true
-        tmpdir = tmpdir:gsub("/tmp", "")
+        tmp = tmp:gsub("/tmp", "")
     end
     tmp = tmpdir .. tmp
     local f, err = io.open(tmp .. ".tex", 'w')
