@@ -37,7 +37,17 @@ T         46
 
 ## Figures and images
 
-![Look at that puppy!](./poster/images/puppy.jpg){width=100px height=100px}
+\tikzset{
+    auto,node distance =1 cm and 1 cm,semithick,
+    state/.style ={circle, draw, minimum width = 0.9 cm}
+}
+\begin{tikzpicture}
+  \node[state] (m) at (0,0) {$M$};
+  \node[state] (a) [right =of m] {$A$};
+  \node[state] (b) [right =of a] {$B$};
+  \path (m) edge (a);
+  \path (a) edge (b);
+\end{tikzpicture}
 
 ----
 
