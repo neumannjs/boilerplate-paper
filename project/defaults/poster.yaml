@@ -1,12 +1,12 @@
 from: markdown
 to: pdf
 
-template: ./style/poster.tex
+template: ./assets/poster.tex
 
 output-file: ../output/poster.pdf
 
 metadata:
-  csl: ./style/elsevier.csl
+  csl: ./assets/elsevier.csl
 
 filters:
 - pandoc-crossref

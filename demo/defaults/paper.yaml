@@ -3,10 +3,10 @@ to: pdf
 
 output-file: ../output/paper.pdf
 
-include-in-header: [./style/preamble.tex]
+include-in-header: [./assets/preamble.tex]
 
 metadata:
-  csl: ./style/springer-lecture-notes-in-computer-science.csl
+  csl: ./assets/springer-lecture-notes-in-computer-science.csl
 
 filters:
 - pandoc-crossref

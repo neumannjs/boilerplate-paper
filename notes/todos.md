@@ -12,7 +12,6 @@
 - [X] ~~Skip worktree or~~ fix .ignore
 - [ ] Keep track of this issue, fallback-png for svg in docx: https://github.com/jgm/pandoc/issues/4058
 - [ ] Fix sizing of Png images in Docx
-- [ ] (maybe?) Inverse images, so that they work on a dark background?
 - [X] (maybe?) Extract images from source material
 - [X] Tikzpictures in slides
 - [X] Seperate the dummy text into a demo folder, so that if somebody clones the project the paper, slides and poster folders are empty
@@ -20,7 +19,7 @@
 - [X] Tikz in separate files
 - [X] Github Actions build job
 - [X] Use environment variables files for local build and github actions build
-- [ ] Create task for pushing slides to gh-pages branch.
+- [X] Create task for pushing slides to gh-pages branch.
 - [X] Make Tikz.lua filter run on Pandoc Alpine Docker
 - [X] Fix git revision bug in Github Actions build
 - [ ] Write documentation
