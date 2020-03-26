@@ -15,7 +15,7 @@
 - [ ] (maybe?) Inverse images, so that they work on a dark background?
 - [X] (maybe?) Extract images from source material
 - [X] Tikzpictures in slides
-- [ ] Seperate the dummy text into a demo folder, so that if somebody clones the project the paper, slides and poster folders are empty
+- [X] Seperate the dummy text into a demo folder, so that if somebody clones the project the paper, slides and poster folders are empty
 - [X] Configure pasteImage extension
 - [X] Tikz in separate files
 - [X] Github Actions build job
