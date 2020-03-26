@@ -1,4 +1,4 @@
 ---
-title: My NEW DEMO Slideshow
+title: My NEWER DEMO Slideshow
 author: Gijs van Dam
 ---

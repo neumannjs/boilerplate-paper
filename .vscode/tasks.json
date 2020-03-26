@@ -15,6 +15,16 @@
       }
     },
     {
+      "label": "Publish slides to Github Pages",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tasks\\pages.ps1",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
       "label": "Paper to PDF",
       "type": "shell",
       "command": "${workspaceFolder}\\tasks\\build.ps1",
