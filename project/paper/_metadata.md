@@ -1,9 +1,9 @@
 ﻿---
-title: This is the title, it doesn't contain a colon
+title: The title of the paper
 author:
 - Author One
 - Author Two
-keywords: [nothing, nothingness]
+keywords: [keyword one, keyword two]
 secnumdepth: 2
 papersize: a4
 ---
