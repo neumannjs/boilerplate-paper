@@ -1,6 +1,7 @@
 {
 	"recommendations": [
 		"ritwickdey.liveserver",
-		"mushan.vscode-paste-image"
+		"mushan.vscode-paste-image",
+		"gruntfuggly.todo-tree"
 	]
 }
