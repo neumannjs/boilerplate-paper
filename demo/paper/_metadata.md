@@ -1,5 +1,5 @@
 ﻿---
-title: This is the NEW DEMO, it doesn't contain a colon
+title: This is the NEW NEW title
 author:
 - Author One
 - Author Two
