@@ -112,5 +112,4 @@ Boilerplate paper comes with a number of suggestions for extensions in VSCode.
 
 ### VSCode tasks
 
-
-
+Boilerplate paper comes with several VSCode tasks preconfigured to make life easier.
