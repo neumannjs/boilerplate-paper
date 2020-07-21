@@ -1,7 +1,7 @@
 Boilerplate Paper
 =================
 
-Boilerplate Paper is a tool for creating scientific papers, posters and slideshows in Markdown and convert them to different formats like Pdf, Word, Powerpoint or Html. Converting your Markdown files to PDF, slideshows or something else, is done using Pandoc. Pandoc is open-source software created to convert documents from one format to another. Apart from Pandoc, there is more software required to be installed on your computer to make everything work. Getting all this software to work can be a bit overwhelming if you are new to this. That's why Boilerplate Paper comes with three Github Actions preconfigured. These Github Actions are automated workflows that convert your Markdown files into your final document using the Github servers. That way you can dip your toe in the water to see if writing papers like this works for you. If it does (and I think it will), you can install the required software on your local computer and experience the benefits of all the features Boilerplate Paper offers.
+Boilerplate Paper is a tool for creating scientific papers, posters and slideshows in Markdown and convert them to different formats like Pdf, Word, PowerPoint or Html. Converting your Markdown files to PDF, slideshows or something else, is done using Pandoc. Pandoc is open-source software created to convert documents from one format to another. Apart from Pandoc, there is more software required to be installed on your computer to make everything work. Getting all this software to work can be a bit overwhelming if you are new to this. That's why Boilerplate Paper comes with three Github Actions preconfigured. These Github Actions are automated workflows that convert your Markdown files into your final document using the Github servers. That way you can dip your toe in the water to see if writing papers like this works for you. If it does (and I think it will), you can install the required software on your local computer and experience the benefits of all the features Boilerplate Paper offers.
 
 Boilerplate Paper is meant to be used with Git and Github. If you create the habit of committing your changes often, using Git, you can track the changes to your work at a very granular level. On top of that you can create a Word document with Track Changes that shows what has changed between any two states of your paper. This is particularly useful when discussing your paper with collaborators or supervisors.
 
@@ -15,6 +15,8 @@ Main Features
 - Convert your Markdown slides to Powerpoint, Pdf or Reveal.js
 - Publish your slideshows online with Github Pages
 - Create a Word document with Track Changes between any two Git commits
+- A Demo document that you can switch to showing examples of most features.
+- Autocomplete Bibtex citations
 
 Useful filters
 --------------
@@ -32,5 +34,7 @@ Best practices
 Boilerplate Paper comes with a few recommendations for Visual Studio Code Extensions for the optimal experience.
 
 - Todo Tree, to keep track of your todo's that you can put as notes anywhere in your document, or in a separate file.
-- Live Sever, to show your Html slideshows locally in your browser.
+- Live Server, to show your Html slideshows locally in your browser.
 - Paste Image, to paste images from your clipboard directly into your Markdown document
+- Pandoc Citer, to suggest citations from a Bibtex file.
+- Table Formatter, to easily create well-formed tables in Markdown

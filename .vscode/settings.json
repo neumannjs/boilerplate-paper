@@ -9,15 +9,16 @@
     "liveServer.settings":  {
                                 "root":  "/output",
                                 "mount":  [
-                                              ["/reveal.js", "reveal.js"],
-                                              ["/output", "output"]
+                                              "/reveal.js reveal.js",
+                                              "/output output"
                                           ]
                             },
-    "pasteImage.basePath":  "${projectRoot}",
+    "pasteImage.basePath":  "${currentFileDir}/..",
     "pasteImage.path":  "${currentFileDir}/images",
     "pasteImage.showFilePathConfirmInputBox":  true,
+    "PandocCiter.DefaultBib": "C:/Users/Gijs/Documents/library.bib",
     "boilerplatePaper":  {
-                             "inputPath":  "demo",
-                             "bibliography":  "C:/Users/Gijs van Dam/Documents/library.bib"
-                         }
+                             "inputPath":  "project",
+                             "bibliography":  "C:/Users/Gijs/Documents/library.bib"
+                        }
 }

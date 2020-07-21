@@ -7,7 +7,7 @@
       "label": "Set input path",
       "type": "shell",
       "command": "${workspaceFolder}\\tasks\\input.ps1",
-      "args": ["${input:gitCommit}"],
+      "args": ["${input:inputPath}"],
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",

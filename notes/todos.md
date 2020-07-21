@@ -7,6 +7,9 @@
 - [X] Create Word reference file
 - [ ] Create Powerpoint reference file
 - [X] Create dummy slides
+Todo's
+======
+
 - [X] Fix citeproc references
 - [ ] Create dummy text, but with tables, tikz pictures and graphs, and pseudocode, references, cross-references, and plotted data.
 - [X] ~~Skip worktree or~~ fix .ignore
