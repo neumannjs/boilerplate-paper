@@ -113,3 +113,17 @@ Boilerplate paper comes with a number of suggestions for extensions in VSCode.
 ### VSCode tasks
 
 Boilerplate paper comes with several VSCode tasks preconfigured to make life easier.
+
+![VSCode tasks](paper/images/vscode-tasks.png)
+
+- Set input path
+- Paper to PDF
+- Paper to DOCX
+- Paper to DOCX specific commit
+- Paper to TEX
+- Paper track changed DOCX
+- Poster to PDF
+- Slides to Beamer
+- Slides to PPTX
+- Slides to RevealJs
+- Publish slides to Github Pages
