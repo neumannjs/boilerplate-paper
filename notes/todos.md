@@ -1,4 +1,4 @@
-# Todos
+# To-dos
 
 - [X] Build document from specific revision
 - [X] Build word document with review from two specific revisions
@@ -7,13 +7,10 @@
 - [X] Create Word reference file
 - [ ] Create Powerpoint reference file
 - [X] Create dummy slides
-Todo's
-======
-
 - [X] Fix citeproc references
 - [ ] Create dummy text, but with tables, tikz pictures and graphs, and pseudocode, references, cross-references, and plotted data.
 - [X] ~~Skip worktree or~~ fix .ignore
-- [ ] Keep track of this issue, fallback-png for svg in docx: https://github.com/jgm/pandoc/issues/4058
+- [ ] Keep track of this issue, fallback-png for svg in docx: <https://github.com/jgm/pandoc/issues/4058>
 - [ ] Fix sizing of Png images in Docx
 - [X] (maybe?) Extract images from source material
 - [X] Tikzpictures in slides
@@ -27,3 +24,5 @@ Todo's
 - [X] Fix git revision bug in Github Actions build
 - [ ] Write documentation
 - [ ] Install ImageMagick on Pandoc Alpine Docker
+- [ ] (idea) Integrate it with the web interface of NeumannJS
+- [ ] (idea) Create a PDF reader based on pdf.js, Maybe even create a electron based version like <https://github.com/sagargurtu/lector>
