@@ -16,9 +16,9 @@
     "pasteImage.basePath":  "${currentFileDir}/..",
     "pasteImage.path":  "${currentFileDir}/images",
     "pasteImage.showFilePathConfirmInputBox":  true,
-    "PandocCiter.DefaultBib": "C:/Users/Gijs/Documents/library.bib",
+    "PandocCiter.DefaultBib": "/home/mini/Documents/library.bib",
     "boilerplatePaper":  {
-                             "inputPath":  "project",
-                             "bibliography":  "C:/Users/Gijs/Documents/library.bib"
+                             "inputPath":  "demo",
+                             "bibliography":  "/home/mini/Documents/library.bib"
                         }
 }

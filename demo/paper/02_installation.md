@@ -7,7 +7,7 @@ To edit and build your paper on your own computer, you need to install software.
 
 Perform the following steps on Windows
 
-## Install packages with Chocolatey
+### Install packages with Chocolatey
 
 If you use the Windows package manager Chocolatey, you can install the required packaged by using the following command.
 
@@ -19,7 +19,7 @@ choco install miktex pandoc pdf2svg imagemagick ghostscript
 
 Since there is no package for Pandoc-citeproc you will have to install that manually (see below).
 
-## Install manually
+### Install manually
 
 Alternatively, you can install the required software manually.
 
@@ -30,7 +30,7 @@ Alternatively, you can install the required software manually.
 - [Pandoc-citeproc](https://github.com/lierdakil/pandoc-crossref/releases/) (see the information below)
 - [Pdf2Svg](https://github.com/jalios/pdf2svg-windows)
 
-### Miktex
+#### Miktex
 
 Download and install Miktex from <https://miktex.org/download>
 
@@ -38,7 +38,7 @@ When presented with the option *Install missing packages* select *Yes*.
 
 ![Install missing packages](paper/images/install-missing-packages.png)
 
-### Pandoc-citeproc
+#### Pandoc-citeproc
 
 Download the [latest release](https://github.com/lierdakil/pandoc-crossref/releases/) of Pandoc-citeproc.
 
@@ -49,26 +49,83 @@ Unzip this file into the installation folder of Pandoc. This folder should be lo
 C:\Users\[username]\AppData\Local\Pandoc
 ```
 
-### Clone your Boilerplate-paper fork
+## Linux (Ubuntu)
+
+### Install software
+
+```bash
+sudo apt install xzdec
+mkdir /tmp/texlive
+cd /tmp/texlive
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
+unzip ./install-tl.zip
+cd install-tl-20200901 [change according to the downloaded release]
+sudo perl ./install-tl
+curl https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb -L -O
+sudo dpkg -i ./pandoc-2.10.1-1-amd64.deb
+```
+
+When you are in perl console then press "i" to install
+
+```bash
+Enter command: i
+```
+
+Adjust the environment variables. (This will set it for all users and processes; we use this, because we use `sudo tlmgr`. If you want don't want to use `sudo`, you should revert to other ways of setting env variables and make sure your user has access to `/usr/local/texlive/2020/`)
+
+```bash
+sudo -H gedit /etc/environment
+```
+
+In the text editor adjust or add the variables like  so:
+
+```
+PATH="[current path contents]:/usr/local/texlive/2020/bin/x86_64-linux"
+MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man"
+INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info"
+```
+
+If sudo uses `secure_path`, you will need to change the `secure_path` too.
+
+```bash
+sudo visudo
+```
+
+In the text edito adjust the `secure_path` variable to
+
+```
+Defaults        secure_path="[current path contents]:/usr/local/texlive/2020/bin/x86_64-linux"
+```
+
+Install pandoc-crossref, make sure that you download the version that is compiled with the version of Pandoc you installed before (in this case 2.10.1)
+
+```
+curl https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.7.0a/pandoc-crossref-Linux-2.10.1.tar.xz -L -O
+sudo tar -C /usr/bin -xJf pandoc-crossref-Linux-2.10.1.tar.xz
+rm pandoc-crossref-Linux-2.10.1.tar.xz
+```
+
+## Clone your Boilerplate-paper fork
 
 Clone your fork with git to create a local copy on your own computer.
-
-The `recurse-submodules` option is needed because Boilerplate paper uses one submodule: reveal.js. Reveal.js is an open source HTML presentation framework and a great alternative for PowerPoint or Keynote.
 
 ```
 git clone --recurse-submodules https://github.com/[username]/boilerplate-paper.git
 ```
 
-### Restart system
+The `recurse-submodules` option is needed because Boilerplate paper uses one submodule: reveal.js. Reveal.js is an open source HTML presentation framework and a great alternative for PowerPoint or Keynote.
+
+## Restart system
 
 At this point you should restart your computer.
 
-### Settings.json
+## Settings.json
 
 Open the folder containing your forked boilerplate-paper repository, using VSCode. Locate the file `settings.json` in the folder `.vscode`.
 Open this file and locate the following settings:
 
 ```json
+"PandocCiter.DefaultBib": "C:/Users/Gijs/Documents/library.bib",
 "boilerplatePaper":  {
     "inputPath":  "demo",
     "bibliography":  "C:/Users/Gijs/Documents/library.bib"
@@ -77,18 +134,18 @@ Open this file and locate the following settings:
 
 The inputPath should point to the folder containing your paper (probably "paper") but for now leave it at "demo".
 
-Change the setting for "bibliography" to make it point to your Bibtex file containing your references.
+Change the setting for "boilerplatePaper.bibliography" and "PandocCiter.DefaultBib" to make it point to your Bibtex file containing your references.
 
-### Test your installation
+## Test your installation
 
 To test if everything works, execute the *Paper to PDF* task in VSCode.
 ![Run Task](paper/images/run-task.png)
 ![Paper to PDF](paper/images/paper-to-pdf.png)
 
-The first run might take a minute or two because of all the packages Miktex needs to install. Subsequent runs should be considerably faster.
+The first run might take a minute or two because of all the packages Miktex or TexLiveOnFly (if you are o Linux) needs to install. Subsequent runs should be considerably faster.
 The result should be the file `paper.pdf` in the `output` folder that contains the manual for using Boilerplate Paper.
 
-### Demo folder
+## Demo folder
 
 The demo folder is not essential for Boilerplate Paper to function. However, it does contain examples on how to use all aspects of Boilerplate Paper. It is recommended to keep the folder as is, so it can be used as a reference.
 
@@ -100,7 +157,7 @@ Change the input path to `project`.
 
 Boilerplate Paper comes with a `project` folder that is a good starting point for a new paper. You can rename that folder to everything you like. You can also have multiple folders like that in the same repository, if you want to keep all your papers inside a single repository. Just remember to always set the input path to the name of the folder containing the paper you are working on.
 
-### Extensions
+## Extensions
 
 Boilerplate paper comes with a number of suggestions for extensions in VSCode.
 
@@ -110,7 +167,7 @@ Boilerplate paper comes with a number of suggestions for extensions in VSCode.
 - *Pandoc Citer*: This extension provides autocompletion of citations stored in a bibtex file. In the `settings.json` file edit the `PandocCiter.DefaultBib` setting so that it points to your Bibtex file. You should probably have it point to the same file as the `boilerplatePaper.bibliography` setting points to.
 - *Table Formatter*: This extension auto-formats and aligns tables in markdown. This extension is a time saver because it allows you to write sloppy (but syntactically correct) tables in markdown. The extension then formats the table, making it very clear and readable in your markdown document.
 
-### VSCode tasks
+## VSCode tasks
 
 Boilerplate paper comes with several VSCode tasks preconfigured to make life easier.
 

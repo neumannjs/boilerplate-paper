@@ -27,15 +27,25 @@
     {
       "label": "Paper to PDF",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
-      "args": [
-        "-source",
-        "paper",
-        "-defaults",
-        "defaults/paper.yaml",
-        "-bibliography",
-        "${config:boilerplatePaper.bibliography}"
-      ],
+      "windows": {
+        "command": "${workspaceFolder}\\tasks\\build.ps1",
+        "args": [
+          "-source",
+          "paper",
+          "-defaults",
+          "defaults/paper.yaml",
+          "-bibliography",
+          "${config:boilerplatePaper.bibliography}"
+        ]
+      },
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/paper.yaml",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "paper/*.md"
+        ]
+      },
       "options": {
         "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
       },
