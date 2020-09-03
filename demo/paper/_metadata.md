@@ -1,9 +1,9 @@
 ﻿---
-title: This is the NEW NEW title
+title: Using Boilerplate Paper for your papers, posters and slideshows
 author:
-- Author One
-- Author Two
-keywords: [nothing, nothingness]
+- Gijs van Dam
+keywords: [LaTeX, Markdown, Pandoc, Vscode]
 secnumdepth: 2
-papersize: a4
+# classoption:
+# - draft
 ---
