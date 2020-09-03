@@ -19,7 +19,7 @@ Now you have to enable the Github Actions for your own repository. Github Action
 
 ![Enable workflows](paper/images/enable-workflows.png){ width=350px }
 
-The next thing you have to do is supply a link to your Bibtex file. If you use a reference manager like Mendeley, Zotero or Endnote, you can easily export your references to the Bibtex format. If you store this exported file using a file hosting service like Dropbox, you can easily create a accessible link to you Bibtex file. For this demo it's not needed to use you own link yet; you can use the link supplied by Boilerplate Paper: https://www.dropbox.com/s/7mwh7oi3q8mxmeo/latex.bib?raw=1
+The next thing you have to do is supply a link to your Bibtex file. If you use a reference manager like Mendeley, Zotero or Endnote, you can easily export your references to the Bibtex format. If you store this exported file using a file hosting service like Dropbox, you can create a accessible link to you Bibtex file. For this demo it's not needed to use you own link yet; you can use the link supplied by Boilerplate Paper: https://www.dropbox.com/s/7mwh7oi3q8mxmeo/latex.bib?raw=1
 Either way, you have to tell your repository about this link. Go to the Settings tab, Secrets and click on *Add a new secret*.
 
 ![The settings tab, secrets](paper/images/secrets.png){ width=350px }

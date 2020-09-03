@@ -1,9 +1,46 @@
 Installation  {#sec:installation}
 ============
 
-To edit and build your paper on your own computer, you need to install software. This explanation assumes you already have installed VSCode and Git. Explaining how to do that is outside the scope of this document.
+To edit and build your paper on your own computer, you need to install software. This explanation assumes you already have installed VSCode, Git and a reference manager or at least a bib-file containing all your references. Explaining how to do that is outside the scope of this document.
 
-## Windows
+## Preliminaries
+
+### Fork the Boilerplate Paper repository
+
+If you have not already done so, now is the time to fork the Boilerplate Paper repository. Visit the [repository on Github](https://github.com/gijswijs/boilerplate-paper). Click on the Fork-button.
+
+Take note of the url of your forked repository, it should read https://github.com/[your username]/boilerplate-paper.
+
+### Enable Github Actions (optional)
+
+If you plan to run the build process of your documents on your own machine, it is not needed to enable Github Actions. That being said, it might be a good idea to go ahead and enable them anyway. Having them enabled means you can update your documents, for instance your paper, on a machine that doesn't have Pandoc or a LaTex distibution installed and still be sure that the latest version of your paper gets build through Github Actions.
+
+Github Actions are automatic workflows that jump into action once something changes in the repository. By default Github disables them from running on your fork. Go the the Actions tab and click on *I understand my workflows, go ahead and run them*
+
+![Enable workflows](paper/images/enable-workflows.png){ width=350px }
+
+
+Github Actions need to know where to locate your Bibtex file. If you use a reference manager like Mendeley, Zotero or Endnote, you can easily export your references to the Bibtex format. This file should be available for download over https. For instance, you can use a file hosting service like Dropbox, and create an accessible link to you Bibtex file and save this link.
+
+Now go to the Settings tab, Secrets and click on *Add a new secret*.
+
+![The settings tab, secrets](paper/images/secrets.png){ width=350px }
+
+The Name of the secret should be BIBTEX_LINK and the value should be the url to your Bibtex file.
+
+![BIBTEX_LINK secret](paper/images/bibtex-link-secret.png){ width=350px }
+
+### Clone your Boilerplate-paper fork
+
+Clone your fork with git to create a local copy on your own computer.
+
+```
+git clone --recurse-submodules https://github.com/[username]/boilerplate-paper.git
+```
+
+The `recurse-submodules` option is needed because Boilerplate paper uses one submodule: reveal.js. Reveal.js is an open source HTML presentation framework and a great alternative for PowerPoint or Keynote.
+
+## Install software on Windows
 
 Perform the following steps on Windows
 
@@ -17,7 +54,7 @@ If you use the Windows package manager Chocolatey, you can install the required 
 choco install miktex pandoc pdf2svg imagemagick ghostscript
 ```
 
-Since there is no package for Pandoc-citeproc you will have to install that manually (see below).
+Since there is no package for Pandoc-crossref you will have to install that manually (see below).
 
 ### Install manually
 
@@ -27,8 +64,8 @@ Alternatively, you can install the required software manually.
 - [ImageMagick](https://imagemagick.org/script/download.php#windows)
 - [Miktex](https://miktex.org/download) (See the information below on installing Miktex about what options to choose during install)
 - [Pandoc](https://pandoc.org/installing.html)
-- [Pandoc-citeproc](https://github.com/lierdakil/pandoc-crossref/releases/) (see the information below)
 - [Pdf2Svg](https://github.com/jalios/pdf2svg-windows)
+- [Pandoc-crossref](https://github.com/lierdakil/pandoc-crossref/releases/) (see the information below)
 
 #### Miktex
 
@@ -49,9 +86,11 @@ Unzip this file into the installation folder of Pandoc. This folder should be lo
 C:\Users\[username]\AppData\Local\Pandoc
 ```
 
-## Linux (Ubuntu)
+## Install software on Linux (Ubuntu)
 
-### Install software
+### Install Tex Live
+
+First install TeX Live
 
 ```bash
 sudo apt install xzdec
@@ -60,18 +99,43 @@ cd /tmp/texlive
 wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
 unzip ./install-tl.zip
 cd install-tl-20200901 [change according to the downloaded release]
-sudo perl ./install-tl
-curl https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb -L -O
-sudo dpkg -i ./pandoc-2.10.1-1-amd64.deb
+perl ./install-tl
 ```
 
-When you are in perl console then press "i" to install
+When you are in the perl console there are two things you should consider:
 
-```bash
-Enter command: i
-```
+1. Create symlinks to standard directories
+2. Select a scheme other than full 
 
-Adjust the environment variables. (This will set it for all users and processes; we use this, because we use `sudo tlmgr`. If you want don't want to use `sudo`, you should revert to other ways of setting env variables and make sure your user has access to `/usr/local/texlive/2020/`)
+#### Create symlinks to standard directories
+
+Press "o" for Options, and then "l" to create symlinks to standard directories. Accept all defaults for the symlinks.
+
+![Create symlinks to standard directories](paper/images/create-symlinks.png)
+
+Press "r" to return to the main menu.
+
+This should make adding the folders to the path env variables unneccessary, but this hasn't been properly tested yet.
+
+#### Select another scheme
+
+By default TeX Live installs with all packages. This is called the full scheme, and can take quite a lot of time and a lot of space on your hard drive. You can change the scheme by pressing "s" from the main menu. Now select the scheme by pressing the correct letter.
+
+![Select a TeX Live scheme](paper/images/selecting-scheme.png)
+
+Press "r" to return to the main menu.
+
+#### Continue with installation
+
+After setting the correct options and scheme, continue with the installation. Press "i" from the main menu to install
+
+![Install TeX Live](paper/images/install-tex-live.png)
+
+#### Edit the environment variables 
+
+If you have added the symlinks during the installation of TeX Live, this step is (probably) not needed.
+
+If you follow these steps, you will change the env variabels for all users (including sudo) and processes. we use this, because we use `sudo tlmgr`. If you want don't want to use `sudo`, you should revert to other ways of setting env variables and make sure your user has access to `/usr/local/texlive/2020/`.
 
 ```bash
 sudo -H gedit /etc/environment
@@ -96,6 +160,14 @@ In the text edito adjust the `secure_path` variable to
 ```
 Defaults        secure_path="[current path contents]:/usr/local/texlive/2020/bin/x86_64-linux"
 ```
+### Install Pandoc
+
+```
+curl https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb -L -O
+sudo dpkg -i ./pandoc-2.10.1-1-amd64.deb
+```
+
+#### Install Pandoc crossref
 
 Install pandoc-crossref, make sure that you download the version that is compiled with the version of Pandoc you installed before (in this case 2.10.1)
 
@@ -105,15 +177,13 @@ sudo tar -C /usr/bin -xJf pandoc-crossref-Linux-2.10.1.tar.xz
 rm pandoc-crossref-Linux-2.10.1.tar.xz
 ```
 
-## Clone your Boilerplate-paper fork
+#### Install other packages
 
-Clone your fork with git to create a local copy on your own computer.
+ImageMagick, Pdf2Svg and Ghostscript are needed for all sorts of image conversions. Those packages should be installed.
 
 ```
-git clone --recurse-submodules https://github.com/[username]/boilerplate-paper.git
+sudo apt install imagemagick pdf2svg ghostscript
 ```
-
-The `recurse-submodules` option is needed because Boilerplate paper uses one submodule: reveal.js. Reveal.js is an open source HTML presentation framework and a great alternative for PowerPoint or Keynote.
 
 ## Restart system
 
