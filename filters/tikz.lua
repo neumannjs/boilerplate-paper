@@ -34,7 +34,12 @@ local function tikz2image(src, filetype, outfile)
             print("renamed file from " .. tmp .. ".pdf to " .. outfile)
         end
     elseif filetype == 'png' then
-        os.execute("magick convert  -density 300 -antialias " .. tmp .. ".pdf -quality 100 " .. outfile)
+        if debian == true then
+            print("convert  -density 300 -antialias " .. tmp .. ".pdf -quality 100 " .. outfile)
+            os.execute("convert  -density 300 -antialias " .. tmp .. ".pdf -quality 100 " .. outfile)
+        else
+            os.execute("magick convert  -density 300 -antialias " .. tmp .. ".pdf -quality 100 " .. outfile)
+        end
     else
         os.execute("pdf2svg " .. tmp .. ".pdf " .. outfile)
     end
@@ -42,6 +47,7 @@ local function tikz2image(src, filetype, outfile)
     os.remove(tmp .. ".pdf")
     os.remove(tmp .. ".log")
     os.remove(tmp .. ".aux")
+    os.remove(tmp .. ".synctex.gz")
 end
 
 extension_for = {
