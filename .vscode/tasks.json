@@ -7,7 +7,9 @@
       "label": "Set input path",
       "type": "shell",
       "command": "${workspaceFolder}\\tasks\\input.ps1",
-      "args": ["${input:inputPath}"],
+      "args": [
+        "${input:inputPath}"
+      ],
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -58,21 +60,34 @@
     {
       "label": "Paper to DOCX",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
-      "args": [
-        "-source",
-        "paper",
-        "-defaults",
-        "defaults/paper.yaml",
-        "-referencedoc",
-        "assets/reference.docx",
-        "-output",
-        "../output/paper.docx",
-        "-to",
-        "docx",
-        "-bibliography",
-        "${config:boilerplatePaper.bibliography}"
-      ],
+      "windows": {
+        "command": "${workspaceFolder}\\tasks\\build.ps1",
+        "args": [
+          "-source",
+          "paper",
+          "-defaults",
+          "defaults/paper.yaml",
+          "-referencedoc",
+          "assets/reference.docx",
+          "-output",
+          "../output/paper.docx",
+          "-to",
+          "docx",
+          "-bibliography",
+          "${config:boilerplatePaper.bibliography}"
+        ]
+      },
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/paper.yaml",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "--reference-doc=assets/reference.docx",
+          "--output=../output/paper.docx",
+          "--to=docx",
+          "paper/*.md"
+        ]
+      },
       "options": {
         "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
       },
@@ -85,19 +100,31 @@
     {
       "label": "Paper to TEX",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
-      "args": [
-        "-source",
-        "paper",
-        "-defaults",
-        "defaults/paper.yaml",
-        "-output",
-        "../output/paper.tex",
-        "-to",
-        "latex",
-        "-bibliography",
-        "${config:boilerplatePaper.bibliography}"
-      ],
+      "windows": {
+        "command": "${workspaceFolder}\\tasks\\build.ps1",
+        "args": [
+          "-source",
+          "paper",
+          "-defaults",
+          "defaults/paper.yaml",
+          "-output",
+          "../output/paper.tex",
+          "-to",
+          "latex",
+          "-bibliography",
+          "${config:boilerplatePaper.bibliography}"
+        ]
+      },
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/paper.yaml",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "--output=../output/paper.tex",
+          "--to=latex",
+          "paper/*.md"
+        ]
+      },
       "options": {
         "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
       },
@@ -110,15 +137,25 @@
     {
       "label": "Poster to PDF",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
-      "args": [
-        "-source",
-        "poster",
-        "-defaults",
-        "defaults/poster.yaml",
-        "-bibliography",
-        "${config:boilerplatePaper.bibliography}"
-      ],
+      "windows": {
+        "command": "${workspaceFolder}\\tasks\\build.ps1",
+        "args": [
+          "-source",
+          "poster",
+          "-defaults",
+          "defaults/poster.yaml",
+          "-bibliography",
+          "${config:boilerplatePaper.bibliography}"
+        ]
+      },
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/poster.yaml",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "poster/*.md"
+        ]
+      },
       "options": {
         "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
       },
@@ -187,15 +224,25 @@
     {
       "label": "Slides to RevealJs",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
-      "args": [
-        "-source",
-        "slides",
-        "-defaults",
-        "defaults/slides.yaml",
-        "-bibliography",
-        "${config:boilerplatePaper.bibliography}"
-      ],
+      "windows": {
+        "command": "${workspaceFolder}\\tasks\\build.ps1",
+        "args": [
+          "-source",
+          "slides",
+          "-defaults",
+          "defaults/slides.yaml",
+          "-bibliography",
+          "${config:boilerplatePaper.bibliography}"
+        ]
+      },
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/slides.yaml",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "slides/*.md"
+        ]
+      },
       "options": {
         "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
       },
@@ -208,7 +255,7 @@
     {
       "label": "Slides to Beamer",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "windows": {"command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
         "slides",
@@ -220,7 +267,17 @@
         "../output/slides.pdf",
         "-bibliography",
         "${config:boilerplatePaper.bibliography}"
-      ],
+      ]},
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/slides.yaml",
+          "--to=beamer",
+          "--output=../output/slides.pdf",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "slides/*.md"
+        ]
+      },
       "options": {
         "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
       },
@@ -233,7 +290,7 @@
     {
       "label": "Slides to PPTX",
       "type": "shell",
-      "command": "${workspaceFolder}\\tasks\\build.ps1",
+      "windows": {"command": "${workspaceFolder}\\tasks\\build.ps1",
       "args": [
         "-source",
         "slides",
@@ -245,7 +302,17 @@
         "../output/slides.pptx",
         "-bibliography",
         "${config:boilerplatePaper.bibliography}"
-      ],
+      ]},
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/slides.yaml",
+          "--to=pptx",
+          "--output=../output/slides.pptx",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "slides/*.md"
+        ]
+      },
       "options": {
         "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
       },
