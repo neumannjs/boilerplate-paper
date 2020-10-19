@@ -2,6 +2,7 @@ from: markdown
 to: revealjs
 
 output-file: ../output/slides.html
+template: ./assets/default.beamer
 
 standalone: true
 self-contained: false
@@ -12,7 +13,8 @@ metadata:
   revealjs-url: /reveal.js
 
 # variables:
-#   date: 2020-03-10
+  # handout: true
+  # date: 2020-03-10
 
 filters:
 - pandoc-citeproc
