@@ -1,0 +1,23 @@
+from: markdown
+to: revealjs
+
+output-file: ../output/slides.html
+
+standalone: true
+self-contained: false
+extract-media: ../output/images
+
+metadata:
+  csl: ./assets/elsevier.csl
+  revealjs-url: /reveal.js
+
+# variables:
+#   date: 2020-03-10
+
+filters:
+- pandoc-citeproc
+- ../filters/git-revision.lua
+- ../filters/metadata-replace.lua
+- ../filters/tikz.lua
+
+verbosity: WARNING

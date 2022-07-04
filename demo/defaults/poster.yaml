@@ -1,0 +1,19 @@
+from: markdown
+to: pdf
+
+template: ./assets/poster.tex
+
+output-file: ../output/poster.pdf
+
+metadata:
+  csl: ./assets/elsevier.csl
+
+filters:
+- pandoc-crossref
+- pandoc-citeproc
+- ../filters/git-revision.lua
+- ../filters/metadata-replace.lua
+- ../filters/poster-block.lua
+- ../filters/tikz.lua
+
+verbosity: WARNING

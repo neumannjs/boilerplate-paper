@@ -1,0 +1,64 @@
+\documentclass{beamer}
+%% Possible paper sizes: a0, a0b, a1, a2, a3, a4.
+%% Possible orientations: portrait, landscape
+%% Font sizes can be changed using the scale option.
+\usepackage[size=a3,orientation=portrait,scale=1.8]{beamerposter}
+
+\usepackage{./assets/beamerthemeLLT-poster}
+\usepackage{./assets/beamercolorthemeComingClean}
+
+% \usecolortheme{Entrepreneur}
+% \usecolortheme{ConspiciousCreep}  %% VERY garish.
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[scaled=0.92]{inconsolata}
+\usepackage[libertine]{newtxmath}
+\usepackage[numbers]{natbib}
+\usepackage{graphicx}
+
+\usepackage{longtable, booktabs}
+\usepackage{caption}
+
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
+
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+
+\renewcommand{\bibfont}{\small}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(author)$
+\author[$if(email)$$email$$endif$]{$author$}
+$endif$
+$if(title)$
+\title{$title$}
+$endif$
+$if(institute)$
+\institute{$institute$}
+$endif$
+$if(footimage)$
+\footimage{$footimage$}
+$endif$
+
+\begin{document}
+\begin{frame}[fragile]\centering
+
+$body$
+
+\end{frame}
+
+
+\end{document}

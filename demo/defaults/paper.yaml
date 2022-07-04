@@ -1,0 +1,21 @@
+from: markdown
+to: pdf
+
+output-file: ../output/paper.pdf
+
+include-in-header: [./assets/preamble.tex]
+
+metadata:
+  csl: ./assets/springer-lecture-notes-in-computer-science.csl
+
+filters:
+- pandoc-crossref
+- pandoc-citeproc
+- ../filters/abstract-to-meta.lua
+- ../filters/git-revision.lua
+- ../filters/metadata-replace.lua
+- ../filters/tikz.lua
+
+verbosity: WARNING
+
+number-sections: true

@@ -1,0 +1,28 @@
+# To-dos
+
+- [X] Build document from specific revision
+- [X] Build word document with review from two specific revisions
+- [X] Use cache for images with lua filter
+- [X] Get Lua filters with git revision and metadata replace to work again.
+- [X] Create Word reference file
+- [ ] Create Powerpoint reference file
+- [X] Create dummy slides
+- [X] Fix citeproc references
+- [ ] Create dummy text, but with tables, tikz pictures and graphs, and pseudocode, references, cross-references, and plotted data.
+- [X] ~~Skip worktree or~~ fix .ignore
+- [ ] Keep track of this issue, fallback-png for svg in docx: <https://github.com/jgm/pandoc/issues/4058>
+- [ ] Fix sizing of Png images in Docx
+- [X] (maybe?) Extract images from source material
+- [X] Tikzpictures in slides
+- [X] Seperate the dummy text into a demo folder, so that if somebody clones the project the paper, slides and poster folders are empty
+- [X] Configure pasteImage extension
+- [X] Tikz in separate files
+- [X] Github Actions build job
+- [X] Use environment variables files for local build and github actions build
+- [X] Create task for pushing slides to gh-pages branch.
+- [X] Make Tikz.lua filter run on Pandoc Alpine Docker
+- [X] Fix git revision bug in Github Actions build
+- [ ] Write documentation
+- [ ] Install ImageMagick on Pandoc Alpine Docker
+- [ ] (idea) Integrate it with the web interface of NeumannJS
+- [ ] (idea) Create a PDF reader based on pdf.js, Maybe even create a electron based version like <https://github.com/sagargurtu/lector>

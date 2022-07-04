@@ -1,0 +1,54 @@
+name: CI Slides
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**/slides/**'
+
+jobs:
+  build:
+    name: Build slides RevealJs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Check input path
+        id: inputPath
+        uses: notiz-dev/github-action-json-property@release
+        with: 
+          path: '.vscode/settings.json'
+          prop_path: 'boilerplatePaper.inputPath'
+      - name: Download Bibtex file
+        run: curl $BIBTEX_LINK -L -o output/bibtex.bib
+        env: 
+          BIBTEX_LINK: ${{ secrets.BIBTEX_LINK }}
+      - name: List markdown files
+        run: cd ${{steps.inputPath.outputs.prop}} && echo "::set-output name=md_files::$(ls -1 slides/*.md | tr  '\n' ' ')"
+        id: input_files
+      - name: Run Pandoc
+        uses: docker://pandoc/latex:2.9.2
+        with:
+          entrypoint: /bin/sh
+          args: >-
+            -c "
+             tlmgr update --self &&
+             tlmgr install texliveonfly &&
+             apk add curl git python2 &&
+             apk add pdf2svg --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+             curl https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2/linux-pandoc_2_9_2.tar.gz -L -O &&
+             tar -C /usr/bin -zxvf linux-pandoc_2_9_2.tar.gz &&
+             rm linux-pandoc_2_9_2.tar.gz &&
+             cd ${{steps.inputPath.outputs.prop}} &&
+             pandoc --defaults=defaults/slides.yaml --self-contained --bibliography=../output/bibtex.bib ${{ steps.input_files.outputs.md_files }} &&
+             cd ../output &&
+             find . ! -name 'slides.html' -type f -exec rm -f {} +
+            "
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: output
+          path: output
