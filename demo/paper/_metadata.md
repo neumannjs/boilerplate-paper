@@ -2,7 +2,7 @@
 title: Using Boilerplate Paper for your papers, posters and slideshows
 author:
 - name: Gijs van Dam
-  email: gavndam@gmail.com
+  email: gvandam@gmail.com
   group: Group1
   corref: cor1
   cortext: Corresponding author
