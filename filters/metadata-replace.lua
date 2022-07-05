@@ -2,7 +2,7 @@ local vars = {}
 
 function get_vars (meta)
   for k, v in pairs(meta) do
-    if (v and v.t and v.t == 'MetaInlines') then
+    if (v and type(v) == "table" and v.t and v.t == 'MetaInlines') then
       vars["%" .. k .. "%"] = {table.unpack(v)}
     else
       vars["%" .. k .. "%"] = v

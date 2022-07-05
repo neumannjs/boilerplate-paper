@@ -6,11 +6,11 @@ template: ./assets/poster.tex
 output-file: ../output/poster.pdf
 
 metadata:
-  csl: ./assets/elsevier.csl
+  csl: ./assets/springer-lecture-notes-in-computer-science.csl
 
 filters:
 - pandoc-crossref
-- pandoc-citeproc
+- citeproc
 - ../filters/git-revision.lua
 - ../filters/metadata-replace.lua
 - ../filters/poster-block.lua

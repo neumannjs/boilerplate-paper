@@ -22,9 +22,9 @@
     "pasteImage.basePath": "${currentFileDir}/..",
     "pasteImage.path": "${currentFileDir}/images",
     "pasteImage.showFilePathConfirmInputBox": true,
-    "PandocCiter.DefaultBib": "/home/mini/Documents/library.bib",
+    "PandocCiter.DefaultBib": "/Users/Gijs/Dropbox/library.bib",
     "boilerplatePaper": {
         "inputPath": "demo",
-        "bibliography": "/home/mini/Documents/library.bib"
+        "bibliography": "/Users/Gijs/Dropbox/library.bib"
     }
 }

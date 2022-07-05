@@ -10,7 +10,7 @@
 - [X] Fix citeproc references
 - [ ] Create dummy text, but with tables, tikz pictures and graphs, and pseudocode, references, cross-references, and plotted data.
 - [X] ~~Skip worktree or~~ fix .ignore
-- [ ] Keep track of this issue, fallback-png for svg in docx: <https://github.com/jgm/pandoc/issues/4058>
+- [X] Keep track of this issue, fallback-png for svg in docx: <https://github.com/jgm/pandoc/issues/4058>
 - [ ] Fix sizing of Png images in Docx
 - [X] (maybe?) Extract images from source material
 - [X] Tikzpictures in slides
@@ -26,3 +26,4 @@
 - [ ] Install ImageMagick on Pandoc Alpine Docker
 - [ ] (idea) Integrate it with the web interface of NeumannJS
 - [ ] (idea) Create a PDF reader based on pdf.js, Maybe even create a electron based version like <https://github.com/sagargurtu/lector>
+- [ ] Create filter for pgf files, so that they can be included using markdown

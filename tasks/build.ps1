@@ -1,10 +1,9 @@
 param ([String] $source, [String] $defaults, [String] $referencedoc, [String] $to, [String] $output, [String[]] $commits, [String] $bibliography)
 
 function build($source, $defaults, $referencedoc, $to, $output, $bibliography) {
-  $Dir = Get-ChildItem -Path $source.replace("\", "/") | Sort-Object
   $defaults = $defaults.replace("\", "/")
  
-  $List = $Dir | Where-Object { $_.extension -eq ".md" } | ForEach-Object { "'" + $_.FullName + "'" } 
+  $List = Get-ChildItem -Path $source.replace("\", "/")*.md  -Recurse |  ForEach-Object { "'" + $_.FullName + "'" } | Sort-Object
   $List = $([string]$List).replace("\", "/")
 
   $Command = "pandoc $List --defaults=$defaults --bibliography='$bibliography'"

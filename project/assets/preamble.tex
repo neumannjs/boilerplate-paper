@@ -1,6 +1,7 @@
 \usepackage{tikz}
- \usetikzlibrary{graphs, graphs.standard, quotes, arrows,shapes,positioning}
+\usetikzlibrary{graphs, graphs.standard, quotes, arrows,shapes,positioning}
 
+\usepackage{pgf}
 \usepackage{pgfplots}
 \usepgfplotslibrary{units}
 
@@ -8,3 +9,27 @@
 
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{tcolorbox}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{parskip}
+\usepackage{color}
+
+\usepackage[commandnameprefix=always,final]{changes}
+
+\renewcommand{\*}[1]{\mathbf{#1}}
+
+%% pandoc-theoremnos: required package
+\usepackage{amsthm}
+\usepackage{cleveref}
+
+%% pandoc-theoremnos: set theorem types
+\newtheorem{thm}{Theorem}
+\newtheorem{dfn}{Definition}
+\newtheorem{lem}{Lemma}
+\newtheorem{prf}{Proof}

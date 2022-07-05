@@ -1,10 +1,8 @@
-Writing order vs. document order
-================================
+# Writing order vs. document order
 
 A paper has a fixed format of ordered sections, but it's easier to write a paper in an order that differs from the order of those sections.
 
-Document order
---------------
+## Document order
 
 1. Title
 2. Abstract
@@ -17,8 +15,7 @@ Document order
 9. Acknowledgements
 10. References
 
-Writing order
--------------
+## Writing order
 
 Below the preferred order of writing. The order in the final document is given between brackets.
 

@@ -9,12 +9,14 @@ metadata:
   csl: ./assets/springer-lecture-notes-in-computer-science.csl
 
 filters:
+- pandoc-theoremnos
 - pandoc-crossref
-- pandoc-citeproc
+- citeproc
 - ../filters/abstract-to-meta.lua
 - ../filters/git-revision.lua
 - ../filters/metadata-replace.lua
 - ../filters/tikz.lua
+- ../filters/highlight-todo.lua
 
 verbosity: WARNING
 

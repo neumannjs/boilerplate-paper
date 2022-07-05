@@ -36,6 +36,8 @@
           "paper",
           "-defaults",
           "defaults/paper.yaml",
+          "-output",
+          "../output/${config:boilerplatePaper.inputPath}.pdf",
           "-bibliography",
           "${config:boilerplatePaper.bibliography}"
         ]
@@ -122,6 +124,43 @@
           "--bibliography=${config:boilerplatePaper.bibliography}",
           "--output=../output/paper.tex",
           "--to=latex",
+          "paper/*.md"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Paper to JSON",
+      "type": "shell",
+      "windows": {
+        "command": "${workspaceFolder}\\tasks\\build.ps1",
+        "args": [
+          "-source",
+          "paper",
+          "-defaults",
+          "defaults/paper.yaml",
+          "-output",
+          "../output/paper.json",
+          "-to",
+          "json",
+          "-bibliography",
+          "${config:boilerplatePaper.bibliography}"
+        ]
+      },
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/paper.yaml",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "--output=../output/paper.json",
+          "--to=json",
           "paper/*.md"
         ]
       },
@@ -274,6 +313,76 @@
           "--defaults=defaults/slides.yaml",
           "--to=beamer",
           "--output=../output/slides.pdf",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "slides/*.md"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Slides to Tex",
+      "type": "shell",
+      "windows": {"command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "slides",
+        "-defaults",
+        "defaults/slides.yaml",
+        "-to",
+        "beamer",
+        "-output",
+        "../output/slides.tex",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
+      ]},
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/slides.yaml",
+          "--to=beamer",
+          "--output=../output/slides.tex",
+          "--bibliography=${config:boilerplatePaper.bibliography}",
+          "slides/*.md"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/${config:boilerplatePaper.inputPath}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Slides to JSON",
+      "type": "shell",
+      "windows": {"command": "${workspaceFolder}\\tasks\\build.ps1",
+      "args": [
+        "-source",
+        "slides",
+        "-defaults",
+        "defaults/slides.yaml",
+        "-to",
+        "json",
+        "-output",
+        "../output/slides.json",
+        "-bibliography",
+        "${config:boilerplatePaper.bibliography}"
+      ]},
+      "linux": {
+        "command": "pandoc",
+        "args": [
+          "--defaults=defaults/slides.yaml",
+          "--to=json",
+          "--output=../output/slides.json",
           "--bibliography=${config:boilerplatePaper.bibliography}",
           "slides/*.md"
         ]
