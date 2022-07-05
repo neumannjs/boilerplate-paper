@@ -1,8 +1,7 @@
 ﻿---
 title: Using Boilerplate Paper for your papers, posters and slideshows
 author:
-- name: Gijs van Dam
-  affiliation: Crosslink Knowledge Holding
+- Gijs van Dam
 keywords: [LaTeX, Markdown, Pandoc, Vscode]
 secnumdepth: 2
 papersize: a4
